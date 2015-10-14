@@ -1,9 +1,7 @@
 package com.strorehouse.business.services.impl;
 
 import java.util.List;
-
 import com.storehouse.common.entity.User;
-import com.storehouse.persistance.dao.UserDao;
 import com.storehouse.persistance.dao.impl.UserDaoImpl;
 import com.strorehouse.business.services.UserService;
 
