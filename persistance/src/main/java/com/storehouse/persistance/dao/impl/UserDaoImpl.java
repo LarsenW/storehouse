@@ -14,7 +14,6 @@ public class UserDaoImpl extends GenericDaoImpl<User> implements UserDao {
 	public List<User> findAll() {
 		List<User> users = null;
 		Criteria criteria = getCurrentSession().createCriteria(User.class);
-
 		users = criteria.list();
 		return users;
 	}

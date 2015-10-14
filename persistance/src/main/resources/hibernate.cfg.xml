@@ -14,7 +14,8 @@
 		</property>
 		<property name="current_session_context_class">thread</property>
 		<property name="hibernate.show_sql">true</property>
-		<property name="hibernate.hbm2ddl.auto">create</property>
-		<mapping class="com.storehouse.common.entity.User" />
+		<property name="hibernate.hbm2ddl.auto">update</property>
+		<mapping class="com.storehouse.common.entity.Item" />
+		<mapping class="com.storehouse.common.entity.User" />		
 	</session-factory>
 </hibernate-configuration>
