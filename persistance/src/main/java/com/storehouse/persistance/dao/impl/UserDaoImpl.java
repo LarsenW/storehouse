@@ -20,10 +20,10 @@ public class UserDaoImpl extends GenericDaoImpl<User> implements UserDao {
 	}
 
 	public User getById(Long id) {
-		List<User> users = null;
+		User user = null;
 		Criteria criteria = getCurrentSession().createCriteria(User.class);
 		criteria.add(Restrictions.idEq(id));
-		users = criteria.list();
-		return users.get(0);
+		user = (User) criteria.uniqueResult();
+		return user;
 	}
 }

@@ -21,7 +21,7 @@ public class Main {
 		// service.updateUser(user);
 
 		User user;
-		user = service.getById(10l);
+		user = service.getById(9l);
 		System.out.println(user);
 	}
 }
