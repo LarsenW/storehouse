@@ -14,35 +14,35 @@ public class UserServiceImpl implements UserService {
 	}
 
 	public void persistUser(User user) {
-		userDaoImpl.openCurrentSession();
+		userDaoImpl.openCurrentSessionWithTransaction();
 		userDaoImpl.persist(user);
-		userDaoImpl.closeCurrentSession();
+		userDaoImpl.closeCurrentSessionWithTransaction();
 
 	}
 
 	public void updateUser(User user) {
-		userDaoImpl.openCurrentSession();
+		userDaoImpl.openCurrentSessionWithTransaction();
 		userDaoImpl.update(user);
-		userDaoImpl.closeCurrentSession();
+		userDaoImpl.closeCurrentSessionWithTransaction();
 	}
 
 	public void deleteUser(User user) {
-		userDaoImpl.openCurrentSession();
+		userDaoImpl.openCurrentSessionWithTransaction();
 		userDaoImpl.delete(user);
-		userDaoImpl.closeCurrentSession();
+		userDaoImpl.closeCurrentSessionWithTransaction();
 	}
 
 	public List<User> findAll() {
-		userDaoImpl.openCurrentSession();
+		userDaoImpl.openCurrentSessionWithTransaction();
 		List<User> users = userDaoImpl.findAll();
-		userDaoImpl.closeCurrentSession();
+		userDaoImpl.closeCurrentSessionWithTransaction();
 		return users;
 	}
 
 	public User getById(Long id) {
-		userDaoImpl.openCurrentSession();
+		userDaoImpl.openCurrentSessionWithTransaction();
 		User user = userDaoImpl.getById(id);
-		userDaoImpl.closeCurrentSession();
+		userDaoImpl.closeCurrentSessionWithTransaction();
 		return user;
 	}
 }

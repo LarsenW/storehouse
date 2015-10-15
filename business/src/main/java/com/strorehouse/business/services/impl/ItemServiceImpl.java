@@ -15,36 +15,43 @@ public class ItemServiceImpl implements ItemService {
 	}
 
 	public void persistItem(Item item) {
-		itemDaoImpl.openCurrentSession();
+		itemDaoImpl.openCurrentSessionWithTransaction();
 		itemDaoImpl.persist(item);
-		itemDaoImpl.closeCurrentSession();
+		itemDaoImpl.closeCurrentSessionWithTransaction();
 
 	}
 
 	public void updateItem(Item item) {
-		itemDaoImpl.openCurrentSession();
+		itemDaoImpl.openCurrentSessionWithTransaction();
 		itemDaoImpl.update(item);
-		itemDaoImpl.closeCurrentSession();
+		itemDaoImpl.closeCurrentSessionWithTransaction();
 	}
 
 	public void deleteItem(Item item) {
-		itemDaoImpl.openCurrentSession();
+		itemDaoImpl.openCurrentSessionWithTransaction();
 		itemDaoImpl.delete(item);
-		itemDaoImpl.closeCurrentSession();
+		itemDaoImpl.closeCurrentSessionWithTransaction();
 	}
 
 	public List<Item> findAll() {
-		itemDaoImpl.openCurrentSession();
+		itemDaoImpl.openCurrentSessionWithTransaction();
 		List<Item> items = itemDaoImpl.findAll();
-		itemDaoImpl.closeCurrentSession();
+		itemDaoImpl.closeCurrentSessionWithTransaction();
 		return items;
 	}
 
 	public Item getById(Long id) {
-		itemDaoImpl.openCurrentSession();
+		itemDaoImpl.openCurrentSessionWithTransaction();
 		Item item = itemDaoImpl.getById(id);
-		itemDaoImpl.closeCurrentSession();
+		itemDaoImpl.closeCurrentSessionWithTransaction();
 		return item;
+	}
+
+	public List<Item> findAllByUserId(Long id) {
+		itemDaoImpl.openCurrentSessionWithTransaction();
+		List<Item> items = itemDaoImpl.findAllByUserId(id);
+		itemDaoImpl.closeCurrentSessionWithTransaction();
+		return items;
 	}
 
 }

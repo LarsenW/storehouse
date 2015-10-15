@@ -14,17 +14,23 @@ public class ItemDaoImpl extends GenericDaoImpl<Item> implements ItemDao {
 	@SuppressWarnings("unchecked")
 	public List<Item> findAll() {
 		List<Item> items = null;
-		Criteria criteria = getCurrentSession().createCriteria(User.class);
+		Criteria criteria = getCurrentSession().createCriteria(Item.class);
 		items = criteria.list();
 		return items;
 	}
 
 	public Item getById(Long id) {
 		Item item = null;
-		Criteria criteria = getCurrentSession().createCriteria(User.class);
+		Criteria criteria = getCurrentSession().createCriteria(Item.class);
 		criteria.add(Restrictions.idEq(id));
 		item = (Item) criteria.uniqueResult();
 		return item;
+	}
+
+	public List<Item> findAllByUserId(Long id) {
+		Criteria criteria = getCurrentSession().createCriteria(Item.class);
+		criteria.add(Restrictions.eq("user.id", id));
+		return criteria.list();
 	}
 
 }
