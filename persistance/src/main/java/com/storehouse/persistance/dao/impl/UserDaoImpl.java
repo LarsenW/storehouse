@@ -13,16 +13,16 @@ public class UserDaoImpl extends GenericDaoImpl<User> implements UserDao {
 	@SuppressWarnings("unchecked")
 	public List<User> findAll() {
 		List<User> users = null;
-		Criteria criteria = getCurrentSession().createCriteria(User.class);
-		users = criteria.list();
+//		Criteria criteria = getCurrentSession().createCriteria(User.class);
+//		users = criteria.list();
 		return users;
 	}
 
 	public User getById(Long id) {
 		User user = null;
-		Criteria criteria = getCurrentSession().createCriteria(User.class);
-		criteria.add(Restrictions.idEq(id));
-		user = (User) criteria.uniqueResult();
+//		Criteria criteria = getCurrentSession().createCriteria(User.class);
+//		criteria.add(Restrictions.idEq(id));
+//		user = (User) criteria.uniqueResult();
 		return user;
 	}
 }

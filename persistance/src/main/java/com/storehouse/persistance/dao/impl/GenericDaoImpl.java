@@ -1,32 +1,34 @@
 package com.storehouse.persistance.dao.impl;
 
+import javax.persistence.EntityManager;
+import javax.persistence.EntityManagerFactory;
+import javax.persistence.EntityTransaction;
+import javax.persistence.Persistence;
+
 import org.hibernate.Session;
-import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
-import org.hibernate.boot.registry.StandardServiceRegistryBuilder;
-import org.hibernate.cfg.Configuration;
 
 import com.storehouse.persistance.dao.GenericDao;
 
 public abstract class GenericDaoImpl<T> implements GenericDao<T> {
 
-	private Session currentSession;
-	private Transaction currentTransaction;
+	private EntityTransaction currentTransaction;
+	private EntityManager entityManager;
+	private EntityManagerFactory factory;
 
-	public Session openCurrentSessionWithTransaction() {
-		currentSession = getSessionFactory().openSession();
-		currentTransaction = currentSession.beginTransaction();
-		return currentSession;
+	public void beginTransaction() {
+		initializeEntityManager();
+		currentTransaction = entityManager.getTransaction();
+		currentTransaction.begin();
 	}
 
-	public void closeCurrentSessionWithTransaction() {
-		currentSession.close();
-		System.out.println("close session");
+	public void closeTransaction() {
 		if (currentTransaction != null) {
 			currentTransaction.commit();
 			System.out.println("transaction committed");
 		}
-
+		entityManager.close();
+		factory.close();
 	}
 
 	public void rollbackCurrentTransaction() {
@@ -35,34 +37,14 @@ public abstract class GenericDaoImpl<T> implements GenericDao<T> {
 		currentTransaction = null;
 	}
 
-	private static SessionFactory getSessionFactory() {
-		Configuration configuration = new Configuration().configure();
-		StandardServiceRegistryBuilder builder = new StandardServiceRegistryBuilder()
-				.applySettings(configuration.getProperties());
-		SessionFactory sessionFactory = configuration.buildSessionFactory(builder.build());
-		return sessionFactory;
-
-	}
-
-	public Session getCurrentSession() {
-		return currentSession;
-	}
-
-	public void setCurrentSession(Session currentSession) {
-		this.currentSession = currentSession;
-	}
-
-	public Transaction getCurrentTransaction() {
-		return currentTransaction;
-	}
-
-	public void setCurrentTransaction(Transaction currentTransaction) {
-		this.currentTransaction = currentTransaction;
+	private void initializeEntityManager() {
+		factory = Persistence.createEntityManagerFactory("JpaService");
+		entityManager = factory.createEntityManager();
 	}
 
 	public void persist(T entity) {
 		try {
-			getCurrentSession().save(entity);
+			entityManager.persist(entity);
 			// throw new Exception();
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -73,7 +55,7 @@ public abstract class GenericDaoImpl<T> implements GenericDao<T> {
 
 	public void update(T entity) {
 		try {
-			getCurrentSession().update(entity);
+			entityManager.merge(entity);
 			// throw new Exception();
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -84,7 +66,7 @@ public abstract class GenericDaoImpl<T> implements GenericDao<T> {
 
 	public void delete(T entity) {
 		try {
-			getCurrentSession().delete(entity);
+			entityManager.remove(entity);
 		} catch (Exception e) {
 			e.printStackTrace();
 			rollbackCurrentTransaction();
