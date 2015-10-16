@@ -3,6 +3,7 @@ package com.storehouse.common.entity;
 import java.util.HashSet;
 import java.util.Set;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.OneToMany;
@@ -20,7 +21,7 @@ public class User extends Model {
 
 	private Integer role;
 
-	@OneToMany(mappedBy = "user")
+	@OneToMany(mappedBy = "user", cascade = { CascadeType.ALL })
 	private Set<Item> items = new HashSet<Item>();
 
 	public String getName() {
