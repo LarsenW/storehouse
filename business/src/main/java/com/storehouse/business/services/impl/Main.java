@@ -15,11 +15,12 @@ public class Main {
 		// u.setName("Shumaher");
 		// UserService s = (UserService) context.getBean("userServiceImpl");
 		// s.persistUser(u);
-		List<User> us;
-		UserService s = (UserService) context.getBean("userServiceImpl");
-		us = s.findAll();
-		for (User u : us) {
-			System.out.println(u);
-		}
+		// List<User> us;
+		// UserService s = (UserService) context.getBean("userServiceImpl");
+		// us = s.findAll();
+		// for (User u : us) {
+		// System.out.println(u);
+		// }
+
 	}
 }
