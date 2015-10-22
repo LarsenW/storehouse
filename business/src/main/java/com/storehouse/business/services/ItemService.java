@@ -1,4 +1,4 @@
-package com.strorehouse.business.services;
+package com.storehouse.business.services;
 
 import java.util.List;
 

@@ -1,10 +1,11 @@
-package com.storehouse.persistance.dao.impl;
+package com.storehouse.business.services.impl;
 
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.storehouse.business.services.UserService;
 import com.storehouse.common.entity.User;
 import com.storehouse.persistance.dao.UserDao;
 

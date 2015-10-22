@@ -1,4 +1,4 @@
-package com.storehouse.persistance.dao.impl;
+package com.storehouse.business.services;
 
 import java.util.List;
 
