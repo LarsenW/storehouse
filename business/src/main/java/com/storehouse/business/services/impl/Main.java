@@ -21,6 +21,8 @@ public class Main {
 		// for (User u : us) {
 		// System.out.println(u);
 		// }
-
+		for (String s : context.getBeanDefinitionNames()) {
+			System.out.println(s);
+		}
 	}
 }

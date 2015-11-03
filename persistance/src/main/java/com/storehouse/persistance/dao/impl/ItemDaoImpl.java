@@ -4,9 +4,13 @@ import java.util.List;
 
 import javax.persistence.Query;
 
+import org.springframework.stereotype.Repository;
+
 import com.storehouse.common.entity.Item;
 import com.storehouse.persistance.dao.ItemDao;
 
+
+@Repository
 public class ItemDaoImpl extends GenericDaoImpl<Item> implements ItemDao {
 
 	@SuppressWarnings("unchecked")

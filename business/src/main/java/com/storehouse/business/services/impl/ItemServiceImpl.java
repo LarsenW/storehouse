@@ -1,58 +1,47 @@
 package com.storehouse.business.services.impl;
-//package com.strorehouse.business.services.impl;
-//
-//import java.util.List;
-//
-//import com.storehouse.common.entity.Item;
-//import com.storehouse.persistance.dao.impl.ItemDaoImpl;
-//import com.strorehouse.business.services.ItemService;
-//
-//public class ItemServiceImpl implements ItemService {
-//
-//	private static ItemDaoImpl itemDaoImpl;
-//
-//	static {
-//		itemDaoImpl = new ItemDaoImpl();
-//	}
-//
-//	public void persistItem(Item item) {
-//		itemDaoImpl.beginTransaction();
-//		itemDaoImpl.persist(item);
-//		itemDaoImpl.closeTransaction();
-//
-//	}
-//
-//	public void updateItem(Item item) {
-//		itemDaoImpl.beginTransaction();
-//		itemDaoImpl.update(item);
-//		itemDaoImpl.closeTransaction();
-//	}
-//
-//	public void deleteItem(Item item) {
-//		itemDaoImpl.beginTransaction();
-//		itemDaoImpl.delete(item);
-//		itemDaoImpl.closeTransaction();
-//	}
-//
-//	public List<Item> findAll() {
-//		itemDaoImpl.beginTransaction();
-//		List<Item> items = itemDaoImpl.findAll();
-//		itemDaoImpl.closeTransaction();
-//		return items;
-//	}
-//
-//	public Item getById(Long id) {
-//		itemDaoImpl.beginTransaction();
-//		Item item = itemDaoImpl.getById(id);
-//		itemDaoImpl.closeTransaction();
-//		return item;
-//	}
-//
-//	public List<Item> findAllByUserId(Long id) {
-//		itemDaoImpl.beginTransaction();
-//		List<Item> items = itemDaoImpl.findAllByUserId(id);
-//		itemDaoImpl.closeTransaction();
-//		return items;
-//	}
-//
-//}
+
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.storehouse.business.services.ItemService;
+import com.storehouse.common.entity.Item;
+import com.storehouse.persistance.dao.ItemDao;
+
+@Service
+public class ItemServiceImpl implements ItemService {
+	@Autowired
+	private ItemDao itemDao;
+
+	public void persistItem(Item item) {
+		itemDao.persist(item);
+
+	}
+
+	public void updateItem(Item item) {
+		itemDao.update(item);
+
+	}
+
+	public void deleteItem(Item item) {
+		itemDao.delete(item);
+
+	}
+
+	public List<Item> findAll() {
+
+		return itemDao.findAll();
+	}
+
+	public Item getById(Long id) {
+
+		return itemDao.getById(id);
+	}
+
+	public List<Item> findAllByUserId(Long id) {
+
+		return itemDao.findAllByUserId(id);
+	}
+
+}

@@ -16,7 +16,6 @@ public class UserServiceImpl implements UserService {
 
 	public void persistUser(User user) {
 		userDao.persist(user);
-
 	}
 
 	public void updateUser(User user) {
@@ -28,13 +27,11 @@ public class UserServiceImpl implements UserService {
 	}
 
 	public List<User> findAll() {
-		List<User> users = userDao.findAll();
-		return users;
+		return userDao.findAll();
 	}
 
 	public User getById(Long id) {
-		User user = userDao.getById(id);
-		return user;
+		return userDao.getById(id);
 	}
 
 }
