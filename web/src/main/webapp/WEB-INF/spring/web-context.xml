@@ -12,7 +12,6 @@ http://www.springframework.org/schema/tx/spring-tx.xsd
 http://www.springframework.org/schema/mvc 
 http://www.springframework.org/schema/mvc/spring-mvc-3.0.xsd">
 
-	<context:annotation-config />
 	<import resource="classpath:business-context.xml" />
 	<mvc:annotation-driven />
 	<context:component-scan
