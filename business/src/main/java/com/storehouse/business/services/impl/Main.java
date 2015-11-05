@@ -21,8 +21,10 @@ public class Main {
 		// for (User u : us) {
 		// System.out.println(u);
 		// }
+		int count = 0;
 		for (String s : context.getBeanDefinitionNames()) {
-			System.out.println(s);
+			count++;
 		}
+		System.out.println(count);
 	}
 }
