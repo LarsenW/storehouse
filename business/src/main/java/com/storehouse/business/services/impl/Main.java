@@ -23,7 +23,7 @@ public class Main {
 		// }
 		int count = 0;
 		for (String s : context.getBeanDefinitionNames()) {
-			count++;
+			System.out.println(s);
 		}
 		System.out.println(count);
 	}

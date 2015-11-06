@@ -11,13 +11,17 @@
 
 	<mvc:annotation-driven />
 	<context:component-scan base-package="com.storehouse.web.controllers" />
-	<mvc:resources mapping="/resources/**" location="/resources/"/>
-	
-	<bean 
-		id="viewResolver"
+	<mvc:resources mapping="/resources/**" location="/resources/" />
+
+	<bean id="viewResolver"
 		class="org.springframework.web.servlet.view.InternalResourceViewResolver">
 		<property name="prefix" value="/WEB-INF/jsp/" />
 		<property name="suffix" value=".jsp" />
 	</bean>
+	<!-- you can write here your own beans refered to beans from global spring -->
+	<!-- context, cause this context extends global context -->
+	<!-- <bean id="demo" class="com.storehouse.web.controllers.Demo"> -->
+	<!-- <property name="userService" ref="userServiceImpl" /> -->
+	<!-- </bean> -->
 
 </beans>
