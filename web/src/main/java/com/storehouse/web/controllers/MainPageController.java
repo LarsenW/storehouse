@@ -15,7 +15,7 @@ public class MainPageController {
 	UserService userService;
 
 	@RequestMapping(value ={ "/main","/"}, method = RequestMethod.GET)
-	public String printWelcome(ModelMap model, HttpServletRequest request) {
+	public String showMainPage(ModelMap model, HttpServletRequest request) {
 		model.addAttribute("message", userService.getById(1L).getName());
 		return "main";
 

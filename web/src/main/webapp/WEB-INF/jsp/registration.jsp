@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ include file="base.jsp"%>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -9,17 +10,18 @@
 </head>
 <body>
 	<div class="container" align="center">
-		<form class="form-horizontal" action='' method="POST">
+		<form:form class="form-horizontal" modelAttribute="userForm"
+			action='registration' method="POST">
 			<fieldset>
 				<div id="legend">
-					<legend class="">Register</legend>
+					<legend>Register</legend>
 				</div>
 				<div class="control-group">
 					<!-- Username -->
 					<label class="control-label" for="username">Username</label>
 					<div class="controls">
-						<input type="text" id="username" name="username" placeholder=""
-							class="input-xlarge">
+						<form:input path="name" type="text" id="username" name="username"
+							placeholder="" class="input-xlarge" />
 						<p class="help-block">Username can contain any letters or
 							numbers, without spaces</p>
 					</div>
@@ -29,8 +31,8 @@
 					<!-- E-mail -->
 					<label class="control-label" for="email">E-mail</label>
 					<div class="controls">
-						<input type="text" id="email" name="email" placeholder=""
-							class="input-xlarge">
+						<form:input path="email" type="text" id="email" name="email"
+							placeholder="" class="input-xlarge" />
 						<p class="help-block">Please provide your E-mail</p>
 					</div>
 				</div>
@@ -39,8 +41,8 @@
 					<!-- Password-->
 					<label class="control-label" for="password">Password</label>
 					<div class="controls">
-						<input type="password" id="password" name="password"
-							placeholder="" class="input-xlarge">
+						<form:input path="password" type="password" id="password"
+							name="password" placeholder="" class="input-xlarge" />
 						<p class="help-block">Password should be at least 4 characters</p>
 					</div>
 				</div>
@@ -63,7 +65,7 @@
 					</div>
 				</div>
 			</fieldset>
-		</form>
+		</form:form>
 	</div>
 </body>
 </html>
