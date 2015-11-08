@@ -8,7 +8,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <link rel="stylesheet"
 	href="${basedir}/resources/css/lib/bootstrap.min.css">
-<%-- <script src="${basedir}/resources/js/lib/jquery-1.11.3.min.js"></script> --%>
+<script src="${basedir}/resources/js/lib/jquery-1.11.3.min.js"></script>
 <script src="${basedir}/resources/js/lib/bootstrap.min.js"></script>
 <style>
 body {
