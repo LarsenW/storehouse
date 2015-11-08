@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import com.storehouse.business.services.UserService;
 
 @Controller
-public class HelloController {
+public class MainPageController {
 	@Autowired
 	UserService userService;
 
@@ -19,10 +19,5 @@ public class HelloController {
 		model.addAttribute("message", userService.getById(1L).getName());
 		return "main";
 
-	}
-	@RequestMapping(value ={ "/base",}, method = RequestMethod.GET)
-	public String printBase(ModelMap model, HttpServletRequest request) {
-		
-		return "base";
 	}
 }
