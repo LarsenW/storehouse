@@ -13,6 +13,8 @@ public class Item extends Model {
 
 	private String description;
 
+	private byte[] data;
+
 	@ManyToOne
 	@JoinColumn
 	private User user;
@@ -31,6 +33,14 @@ public class Item extends Model {
 
 	public void setDescription(String description) {
 		this.description = description;
+	}
+
+	public byte[] getData() {
+		return data;
+	}
+
+	public void setData(byte[] data) {
+		this.data = data;
 	}
 
 	public User getUser() {

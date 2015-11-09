@@ -17,7 +17,7 @@
 			<button type="button" class="btn btn-primary btn-lg">Text</button>
 		</div>
 		<br /> <br />
-		<div class="search_group">
+		<div class="search_group" >
 			<form class="form-inline">
 				<div class="input-group input-group-lg">
 					<input type="text" class="form-control" placeholder="Search for...">
@@ -28,6 +28,5 @@
 			</form>
 		</div>
 	</div>
-	<h2>${message}</h2>
 </body>
 </html>

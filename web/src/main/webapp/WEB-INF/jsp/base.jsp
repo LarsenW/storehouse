@@ -13,7 +13,6 @@
 <style>
 body {
 	background-image: url("${basedir}/resources/images/background.jpg");
-	background-size: 100%;
 }
 </style>
 <title>Insert title here</title>
