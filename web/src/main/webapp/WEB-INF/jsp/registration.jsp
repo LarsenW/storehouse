@@ -61,7 +61,7 @@
 				<div class="control-group">
 					<!-- Button -->
 					<div class="controls">
-						<button class="btn btn-success">Register</button>
+						<button class="btn btn-primary">Register</button>
 					</div>
 				</div>
 			</fieldset>
