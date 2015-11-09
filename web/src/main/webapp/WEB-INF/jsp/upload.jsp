@@ -27,12 +27,21 @@
 					<form:textarea class="form-control" path="description" type="text"
 						name="name" />
 					<br>
+					<table>
+						<tr>
+							<td><form:radiobutton path="privacy" value="false" />Public</td>
+							<td><form:radiobutton path="privacy" value="true" />Private</td>
+						</tr>
+					</table>
+					<br>
+					<br>
 					<div align="left">
 						<form:input path="data" type="file" name="file" />
 					</div>
 					<br>
 					<input class="btn btn-primary" type="submit" value="Upload">
 				</form:form>
+
 			</div>
 		</div>
 

@@ -1,6 +1,9 @@
 .panel {
-	width: 50%;
+	width: 40%;
 }
-.panel{
+td{
+	width: 70%;
+}
+.panel {
 	background: #d3d7cf;
 }
