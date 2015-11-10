@@ -22,4 +22,10 @@ public class UsersGridController {
 		model.addAttribute("users", users);
 		return "usersgreed";
 	}
+//	@RequestMapping(value = { "/users" }, method = RequestMethod.POST)
+//	public String removeUser(Model model) {
+//		List<User> users = userService.findAll();
+//		model.addAttribute("users", users);
+//		return "usersgreed";
+//	}
 }
