@@ -3,6 +3,8 @@ package com.storehouse.business.services.impl;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 
 import com.storehouse.business.services.UserService;
@@ -32,6 +34,11 @@ public class UserServiceImpl implements UserService {
 
 	public User getById(Long id) {
 		return userDao.getById(id);
+	}
+
+	public UserDetails loadUserByUsername(String name) throws UsernameNotFoundException {
+		User user = userDao.getUserByName(name);
+		return user;
 	}
 
 }

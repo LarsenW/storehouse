@@ -2,9 +2,11 @@ package com.storehouse.business.services;
 
 import java.util.List;
 
+import org.springframework.security.core.userdetails.UserDetailsService;
+
 import com.storehouse.common.entity.User;
 
-public interface UserService {
+public interface UserService extends UserDetailsService {
 
 	public void persistUser(User user);
 

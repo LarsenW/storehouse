@@ -31,10 +31,17 @@ body {
 					<li><a href="#">Page 3</a></li>
 				</ul>
 				<ul class="nav navbar-nav navbar-right">
-					<li><a href="registration"><span class="glyphicon glyphicon-user"></span>
-							Sign Up</a></li>
+					<li><a href="registration"><span
+							class="glyphicon glyphicon-user"></span> Sign Up</a></li>
 					<li><a href="#"><span class="glyphicon glyphicon-log-in"></span>
 							Login</a></li>
+					<li>
+						<form action="${basedir}/logout" method="post" id="logoutForm">
+							<input type="hidden" name="${_csrf.parameterName}"
+								value="${_csrf.token}" />
+							<button type="submit" class="btn btn-default">Log out</button>
+						</form>
+					</li>
 				</ul>
 			</div>
 		</div>
