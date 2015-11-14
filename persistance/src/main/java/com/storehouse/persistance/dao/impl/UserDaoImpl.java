@@ -11,14 +11,14 @@ import com.storehouse.persistance.dao.UserDao;
 @Repository
 public class UserDaoImpl extends GenericDaoImpl<User> implements UserDao {
 
-	public User getUserByName(String name) {
-		Query query = entityManager.createQuery("Select u FROM User u WHERE u.name = :name");
-		query.setParameter("name", name);
+	public User getUserByEmail(String email) {
+		Query query = entityManager.createQuery("Select u FROM User u WHERE u.email = :email");
+		query.setParameter("email", email);
 		User user;
 		try {
 			user = (User) query.getSingleResult();
 		} catch (javax.persistence.NoResultException e) {
-			throw new UsernameNotFoundException(name);
+			throw new UsernameNotFoundException(email);
 		}
 		return user;
 	}

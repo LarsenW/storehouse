@@ -36,8 +36,8 @@ public class UserServiceImpl implements UserService {
 		return userDao.getById(id);
 	}
 
-	public UserDetails loadUserByUsername(String name) throws UsernameNotFoundException {
-		User user = userDao.getUserByName(name);
+	public UserDetails loadUserByUsername(String email) throws UsernameNotFoundException {
+		User user = userDao.getUserByEmail(email);
 		return user;
 	}
 
