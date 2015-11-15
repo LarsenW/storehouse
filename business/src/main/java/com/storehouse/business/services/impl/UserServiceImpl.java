@@ -8,6 +8,7 @@ import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 
 import com.storehouse.business.services.UserService;
+import com.storehouse.business.utils.PasswordHelper;
 import com.storehouse.common.entity.User;
 import com.storehouse.persistance.dao.UserDao;
 
@@ -15,8 +16,11 @@ import com.storehouse.persistance.dao.UserDao;
 public class UserServiceImpl implements UserService {
 	@Autowired
 	private UserDao userDao;
+	@Autowired
+	private PasswordHelper passwordHelper;
 
 	public void persistUser(User user) {
+		user.setPassword(passwordHelper.encode(user.getPassword()));
 		userDao.persist(user);
 	}
 

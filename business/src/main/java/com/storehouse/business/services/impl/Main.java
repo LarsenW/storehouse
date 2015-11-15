@@ -28,7 +28,5 @@ public class Main {
 		u.setPassword(encodedPassword);
 
 		s.persistUser(u);
-		// System.out.println(s.getById(3l).getUserRoles());
-		// System.out.println(s.loadUserByUsername("Alfred"));
 	}
 }
