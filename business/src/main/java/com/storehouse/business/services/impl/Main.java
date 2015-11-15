@@ -16,10 +16,10 @@ public class Main {
 	public static void main(String[] args) {
 		ApplicationContext context = new ClassPathXmlApplicationContext("business-context.xml");
 		User u = new User();
-		u.setEmail("admin@gmail.com");
-		u.setPassword("admin");
+		u.setEmail("user@gmail.com");
+		u.setPassword("user");
 		Role role = new Role();
-		role.setUserType(UserType.ADMIN);
+		role.setUserType(UserType.ROLE_USER);
 		u.setUserRoles(new HashSet<Role>(Arrays.asList(role)));
 		UserService s = (UserService) context.getBean("userServiceImpl");
 		 s.persistUser(u);

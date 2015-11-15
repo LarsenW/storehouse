@@ -1,5 +1,5 @@
 package com.storehouse.common.enums;
 
 public enum UserType {
-	ADMIN, USER
+	ROLE_ADMIN, ROLE_USER
 }
