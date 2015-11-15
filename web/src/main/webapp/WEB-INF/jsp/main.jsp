@@ -33,10 +33,6 @@
 			</form>
 		</div>
 	</div>
-	<sec:authorize access="hasRole('ROLE_ADMIN')" var="isAdmin">
-		<h1>ALLO</h1>
-	</sec:authorize>
-	<h2>${isAdmin}</h2>
 	<%
 		for (GrantedAuthority c : SecurityContextHolder.getContext().getAuthentication().getAuthorities()) {
 	%>

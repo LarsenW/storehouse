@@ -17,16 +17,12 @@ public class Main {
 	public static void main(String[] args) {
 		ApplicationContext context = new ClassPathXmlApplicationContext("business-context.xml");
 		User u = new User();
-		u.setEmail("grisha@gmail.com");
-
+		u.setEmail("admin@gmail.com");
+		u.setPassword("1111");
 		Role role = new Role();
-		role.setUserType(UserType.ROLE_USER);
+		role.setUserType(UserType.ROLE_ADMIN);
 		u.setUserRoles(new HashSet<Role>(Arrays.asList(role)));
 		UserService s = (UserService) context.getBean("userServiceImpl");
-		PasswordHelper ph = (PasswordHelper) context.getBean("passwordHelper");
-		String encodedPassword = ph.encode("1111");
-		u.setPassword(encodedPassword);
-
 		s.persistUser(u);
 	}
 }
