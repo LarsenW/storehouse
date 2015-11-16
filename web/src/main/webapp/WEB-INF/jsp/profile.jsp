@@ -10,13 +10,12 @@
 </head>
 <body>
 	<div class="container">
-		<div class="row profile">
-			<div class="col-md-3">
+		<div class="row profile custom_form shadow">
+			<div class="col-md-3 ">
 				<div class="profile-sidebar">
-					<!-- SIDEBAR USERPIC -->
 					<div class="profile-userpic">
 						<img
-							src="http://keenthemes.com/preview/metronic/theme/assets/admin/pages/media/profile/profile_user.jpg"
+							src="${basedir}/resources/images/unknown_user.jpg"
 							class="img-responsive" alt="">
 					</div>
 					<div class="profile-usertitle">
@@ -46,10 +45,54 @@
 				</div>
 			</div>
 			<div class="col-md-9">
-				<div class="profile-content">Some user related content goes
-					here...</div>
+				<div class="profile-content">
+					Some user related content goes here...
+					<table class="table table-hover">
+						<thead>
+							<tr>
+								<th>Firstname</th>
+								<th>Lastname</th>
+								<th>Email</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<td>John</td>
+								<td>Doe</td>
+								<td>john@example.com</td>
+							</tr>
+							<tr>
+								<td>Mary</td>
+								<td>Moe</td>
+								<td>mary@example.com</td>
+							</tr>
+							<tr>
+								<td>July</td>
+								<td>Dooley</td>
+								<td>july@example.com</td>
+							</tr>
+								<tr>
+								<td>John</td>
+								<td>Doe</td>
+								<td>john@example.com</td>
+							</tr>
+							<tr>
+								<td>Mary</td>
+								<td>Moe</td>
+								<td>mary@example.com</td>
+							</tr>
+							<tr>
+								<td>July</td>
+								<td>Dooley</td>
+								<td>july@example.com</td>
+							</tr>
+							
+						</tbody>
+					</table>
+				</div>
 			</div>
 		</div>
+	</div>
 	</div>
 </body>
 </html>

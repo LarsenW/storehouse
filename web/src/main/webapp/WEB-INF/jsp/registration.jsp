@@ -9,6 +9,8 @@
 <title>Insert title here</title>
 <link rel="stylesheet" href="${basedir}/resources/css/registration.css">
 <script src="${basedir}/resources/js/registration.js"></script>
+<!-- <script type="text/javascript" src="../dist/js/bootstrapValidator.js"></script> -->
+<!-- <link rel="stylesheet" href="../dist/css/bootstrapValidator.css"/> -->
 </head>
 <body>
 	<div class="container">

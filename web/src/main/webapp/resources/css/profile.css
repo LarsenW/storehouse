@@ -1,6 +1,6 @@
 body {
-/* 	background: #F1F3FA; */
-background-color: #DCDCDC;
+	/* 	background: #F1F3FA; */
+	background-color: #DCDCDC;
 }
 
 /* Profile container */
@@ -11,7 +11,8 @@ background-color: #DCDCDC;
 /* Profile sidebar */
 .profile-sidebar {
 	padding: 20px 0 10px 0;
-	background: #fff;
+	/* 	background: #fff; */
+	background-color: transparent;
 }
 
 .profile-userpic img {
@@ -103,6 +104,15 @@ background-color: #DCDCDC;
 /* Profile Content */
 .profile-content {
 	padding: 20px;
-	background: #fff;
+	/* 	background: #fff; */
+	background-color: transparent;
 	min-height: 460px;
+}
+
+.custom_form {
+	background: rgba(255, 255, 255, 0.8);
+}
+
+.shadow {
+	box-shadow: rgba(0, 0, 0, 0.3) 20px 20px 20px;
 }
