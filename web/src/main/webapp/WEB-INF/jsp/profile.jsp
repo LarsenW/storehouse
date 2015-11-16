@@ -20,8 +20,8 @@
 							class="img-responsive" alt="">
 					</div>
 					<div class="profile-usertitle">
-						<div class="profile-usertitle-name">Marcus Doe</div>
-						<div class="profile-usertitle-job">Developer</div>
+						<div class="profile-usertitle-name">${name}</div>
+						<div class="profile-usertitle-email">${email}</div>
 					</div>
 					<div class="profile-userbuttons">
 						<button type="button" class="btn btn-success btn-sm">Follow</button>
