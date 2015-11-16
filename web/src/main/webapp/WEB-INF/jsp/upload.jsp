@@ -43,9 +43,10 @@
 							<div class="input-group">
 								<span class="input-group-btn"> <span
 									class="btn btn-info btn-file"> Browse… <form:input
-										type="file" path="data"/>
+											type="file" path="data" />
 								</span>
-								</span> <input id="file_upload" type="text" class="form-control">
+								</span> <input id="file_upload" type="text" class="form-control"
+									placeholder="file is not chosen" readonly="readonly">
 							</div>
 							<br>
 							<div>

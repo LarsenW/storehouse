@@ -7,7 +7,7 @@
 
 	<global-method-security pre-post-annotations="enabled" />
 	<http auto-config="true" use-expressions="true">
-		<form-login login-page="/login" default-target-url="/main"
+		<form-login login-page="/login" default-target-url="/default"
 			always-use-default-target="true" authentication-failure-url="/login.jsp?error=invalidLoginPassword"
 			username-parameter="username" password-parameter="password" />
 
