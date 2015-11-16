@@ -12,9 +12,11 @@
 	href="${basedir}/resources/css/lib/bootstrap.min.css">
 <script src="${basedir}/resources/js/lib/jquery-1.11.3.min.js"></script>
 <script src="${basedir}/resources/js/lib/bootstrap.min.js"></script>
+<script src="${basedir}/resources/js/base.js"></script>
+<script src="http://mymaplist.com/js/vendor/TweenLite.min.js"></script>
 <style>
 body {
-	 	background-image: url("${basedir}/resources/images/background.png");
+	 background-image: url("${basedir}/resources/images/background.png");
 }
 </style>
 <script type="text/javascript">
