@@ -1,9 +1,40 @@
-.panel {
-	width: 40%;
+body {
+	background-color: #DCDCDC;
 }
-td{
-	width: 70%;
+
+.centered-form {
+	margin-top: 60px;
 }
-.panel {
-	background: #d3d7cf;
+
+.centered-form .panel {
+	background: rgba(255, 255, 255, 0.8);
+	box-shadow: rgba(0, 0, 0, 0.3) 20px 20px 20px;
+}
+
+.glowing-border {
+	border-radius: 4px;
+	box-shadow: 0 0 10px #999999 !
+   important;
+}
+
+
+
+.btn-file {
+    position: relative;
+    overflow: hidden;
+}
+.btn-file input[type=file] {
+    position: absolute;
+    top: 0;
+    right: 0;
+    min-width: 100%;
+    min-height: 100%;
+    font-size: 100px;
+    text-align: right;
+    filter: alpha(opacity=0);
+    opacity: 0;
+    outline: none;
+    background: white;
+    cursor: inherit;
+    display: block;
 }

@@ -14,7 +14,7 @@
 <script src="${basedir}/resources/js/lib/bootstrap.min.js"></script>
 <style>
 body {
-	background-image: url("${basedir}/resources/images/background.jpg");
+	 	background-image: url("${basedir}/resources/images/background.png");
 }
 </style>
 <script type="text/javascript">
@@ -34,7 +34,7 @@ body {
 				<ul class="nav navbar-nav">
 					<li class="active"><a href="main">Home</a></li>
 					<sec:authorize access="hasRole('ROLE_USER')">
-					<li><a href="upload">Upload</a></li>
+						<li><a href="upload">Upload</a></li>
 					</sec:authorize>
 					<li><a href="#">Page 2</a></li>
 					<li><a href="#">Page 3</a></li>
@@ -44,8 +44,8 @@ body {
 
 						<li><a href="registration"><span
 								class="glyphicon glyphicon-user"></span> Sign Up</a></li>
-						<li><a href="login"><span class="glyphicon glyphicon-log-in"></span>
-								Log in</a></li>
+						<li><a href="login"><span
+								class="glyphicon glyphicon-log-in"></span> Log in</a></li>
 					</sec:authorize>
 					<sec:authorize access="isAuthenticated()">
 						<form action="${basedir}/logout" method="post" id="logoutForm"

@@ -14,30 +14,61 @@
 </head>
 <body>
 	<div class="container">
-		<div class="btn-group">
-			<button type="button" class="btn btn-primary btn-lg">All</button>
-			<button type="button" class="btn btn-primary btn-lg">Video</button>
-			<button type="button" class="btn btn-primary btn-lg">Audio</button>
-			<button type="button" class="btn btn-primary btn-lg">Image</button>
-			<button type="button" class="btn btn-primary btn-lg">Text</button>
+		<div class="jumbotron">
+			<!-- 			<h1>Bootstrap Tutorial</h1> -->
+			<p>Bootstrap is the most popular HTML, CSS, and JS framework for
+				developing responsive, mobile-first projects on the web.</p>
 		</div>
-		<br /> <br />
-		<div class="search_group">
-			<form class="form-inline">
-				<div class="input-group input-group-lg">
-					<input type="text" class="form-control" placeholder="Search for...">
-					<span class="input-group-btn">
-						<button class="btn btn-default" type="button">Go!</button>
-					</span>
+		<div class="row">
+			<div class="col-md-12">
+				<div class="input-group" id="adv-search">
+					<input type="text" class="form-control" placeholder="Search..." />
+					<div class="input-group-btn">
+						<div class="btn-group" role="group">
+							<div class="dropdown dropdown-lg">
+								<button type="button" class="btn btn-default dropdown-toggle"
+									data-toggle="dropdown" aria-expanded="false">
+									<span class="caret"></span>
+								</button>
+								<div class="dropdown-menu dropdown-menu-right" role="menu">
+									<form class="form-horizontal" role="form">
+										<div class="form-group">
+											<label for="filter">Filter by</label> <select
+												class="form-control">
+												<option value="0" selected>All categories</option>
+												<option value="1">Audio</option>
+												<option value="2">Video</option>
+												<option value="3">Image</option>
+												<option value="4">Text</option>
+											</select>
+										</div>
+										<div class="form-group">
+											<label for="contain">Author</label> <input
+												class="form-control" type="text" />
+										</div>
+										<div class="form-group">
+											<label for="contain">Contains the words</label> <input
+												class="form-control" type="text" />
+										</div>
+										<button type="submit" class="btn btn-primary">
+											<span class="glyphicon glyphicon-search" aria-hidden="true"></span>
+										</button>
+									</form>
+								</div>
+							</div>
+							<button type="button" class="btn btn-primary">
+								<span class="glyphicon glyphicon-search" aria-hidden="true"></span>
+							</button>
+						</div>
+					</div>
 				</div>
-			</form>
+			</div>
 		</div>
 	</div>
 	<%
 		for (GrantedAuthority c : SecurityContextHolder.getContext().getAuthentication().getAuthorities()) {
 	%>
-	<h2><%=c%></h2>
-	<%
+	<h2><%=c%></h2>	<%
 		}
 	%>
 </body>
