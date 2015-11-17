@@ -4,12 +4,15 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Propagation;
+import org.springframework.transaction.annotation.Transactional;
 
 import com.storehouse.business.services.ItemService;
 import com.storehouse.common.entity.Item;
 import com.storehouse.persistance.dao.ItemDao;
 
 @Service
+@Transactional(propagation = Propagation.REQUIRED)
 public class ItemServiceImpl implements ItemService {
 	@Autowired
 	private ItemDao itemDao;
