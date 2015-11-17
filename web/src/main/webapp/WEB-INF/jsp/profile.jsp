@@ -15,7 +15,7 @@
 				<div class="profile-sidebar">
 					<div class="profile-userpic">
 						<img
-							src="${basedir}/resources/images/unknown_user.jpg"
+							src="${basedir}/resources/images/unknown_user.png"
 							class="img-responsive" alt="">
 					</div>
 					<div class="profile-usertitle">
