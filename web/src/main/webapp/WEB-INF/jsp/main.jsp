@@ -26,7 +26,8 @@
 	<div class="container">
 		<div class="row">
 			<div class="col-md-12">
-				<div class="input-group" id="adv-search">
+				<div id="sticky-anchor"></div>
+				<div class="input-group" id="sticky">
 					<input type="text" class="form-control" placeholder="Search..." />
 					<div class="input-group-btn">
 						<div class="btn-group" role="group">
