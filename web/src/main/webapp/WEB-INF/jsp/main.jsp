@@ -11,14 +11,19 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="${basedir}/resources/css/main.css">
+<script type="text/javascript"
+	src="${basedir}/resources/js/lib/jquery-1.11.3.min.js"></script>
+<!-- <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.6.4/jquery.min.js"></script> -->
+<script type="text/javascript"
+	src="${basedir}/resources/js/lib/jquery.parallax-1.1.3.js"></script>
+<script type="text/javascript"
+	src="${basedir}/resources/js/lib/jquery.localscroll-1.2.7-min.js"></script>
+<script type="text/javascript"
+	src="${basedir}/resources/js/lib/jquery.scrollTo-1.4.2-min.js"></script>
+<script src="${basedir}/resources/js/main.js"></script>
 </head>
 <body>
 	<div class="container">
-		<div class="jumbotron">
-			<!-- 			<h1>Bootstrap Tutorial</h1> -->
-			<p>Bootstrap is the most popular HTML, CSS, and JS framework for
-				developing responsive, mobile-first projects on the web.</p>
-		</div>
 		<div class="row">
 			<div class="col-md-12">
 				<div class="input-group" id="adv-search">
@@ -65,10 +70,56 @@
 			</div>
 		</div>
 	</div>
+	<div id="intro">
+		<div class="story">
+			<div class="float-left">
+				<h2>Что такое «parallax scrolling» ?</h2>
+				<p>Parallax scrolling — это процесс 2D анимации, который создаёт
+					иллюзию глубины. Анимация передних слоёв быстрее, чем анимация
+					фона..</p>
+			</div>
+		</div>
+		<!--.story-->
+	</div>
+	<!--#intro-->
+
+	<div id="second">
+		<div class="story">
+			<div class="bg"></div>
+			<div class="float-right">
+				<h2>Основная идея параллакса</h2>
+				<p>Когда вы наблюдаете за движущимся автомобилем, вам кажется,
+					что объекты расположенные перед автомобилем, движутся быстрее, чем
+					объекты расположенные за автомобилем.</p>
+				<p>Parallax scrolling использует тот же принцип, чтобы заставить
+					зрителя думать, что он наблюдает за 3D сценой.</p>
+			</div>
+		</div>
+		<!--.story-->
+
+	</div>
+	<!--#second-->
+
+	<div id="third">
+		<div class="story">
+			<div class="float-left">
+				<h2>Принцип работы</h2>
+				<p>Вы можете скролить обычным способом, использовать меню
+					навигации в правой части страницы или кнопки следующий/предыдущий,
+					которые появляются под каждой статьёй. Страница содержит три,
+					независимо друг от друга анимированных слоя, для создания иллюзии
+					глубины.</p>
+			</div>
+		</div>
+		<!--.story-->
+	</div>
+	<!--#third-->
+
 	<%
 		for (GrantedAuthority c : SecurityContextHolder.getContext().getAuthentication().getAuthorities()) {
 	%>
-	<h2><%=c%></h2>	<%
+	<h2><%=c%></h2>
+	<%
 		}
 	%>
 </body>

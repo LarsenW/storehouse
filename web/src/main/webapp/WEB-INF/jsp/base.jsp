@@ -16,7 +16,7 @@
 <script src="http://mymaplist.com/js/vendor/TweenLite.min.js"></script>
 <style>
 body {
-	 background-image: url("${basedir}/resources/images/background.png");
+/* 	 background-image: url("${basedir}/resources/images/background.png"); */
 }
 </style>
 <script type="text/javascript">
