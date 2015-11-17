@@ -6,19 +6,22 @@
 <head>
 <title>Insert title here</title>
 <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="">
-    <meta name="author" content="">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="">
+<meta name="author" content="">
 
-    <title>Simple Sidebar - Start Bootstrap Template</title>
+<title>Simple Sidebar - Start Bootstrap Template</title>
 
-    <!-- Bootstrap Core CSS -->
-    <link href="${basedir}/resources/css/lib/bootstrap.min.css" rel="stylesheet">
-
-    <!-- Custom CSS -->
-    <link href="${basedir}/resources/css/simple-sidebar.css" rel="stylesheet">
-    <script src="${basedir}/resources/js/profile.js"></script>
+<!-- Bootstrap Core CSS -->
+<link href="${basedir}/resources/css/lib/bootstrap.min.css"
+	rel="stylesheet">
+<link href="${basedir}/resources/css/admin.css"
+	rel="stylesheet">
+<!-- Custom CSS -->
+<link href="${basedir}/resources/css/simple-sidebar.css"
+	rel="stylesheet">
+<script src="${basedir}/resources/js/profile.js"></script>
 </head>
 <body>
 
