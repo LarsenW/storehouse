@@ -15,13 +15,6 @@
 <script src="${basedir}/resources/js/base.js"></script>
 <link rel="stylesheet" href="${basedir}/resources/css/base.css">
 <script src="http://mymaplist.com/js/vendor/TweenLite.min.js"></script>
-<style>
-body {
-	background-image: url("${basedir}/resources/images/background.jpg");
-	background-repeat: no-repeat;
-	background-size: 100%;
-}
-</style>
 <script type="text/javascript">
 	function submitform() {
 		document.logoutForm.submit();
