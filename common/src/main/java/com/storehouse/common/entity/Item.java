@@ -1,9 +1,13 @@
 package com.storehouse.common.entity;
 
 import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
+
+import com.storehouse.common.enums.FileCategory;
 
 @Entity
 @Table(name = "item")
@@ -15,11 +19,14 @@ public class Item extends Model {
 
 	private byte[] data;
 
-	private Boolean privacy=false;
+	private Boolean privacy = false;
 
 	@ManyToOne
 	@JoinColumn
 	private User user;
+
+	@Enumerated(EnumType.STRING)
+	private FileCategory fileCategory;
 
 	public String getName() {
 		return name;
@@ -59,6 +66,14 @@ public class Item extends Model {
 
 	public void setUser(User user) {
 		this.user = user;
+	}
+
+	public FileCategory getFileCategory() {
+		return fileCategory;
+	}
+
+	public void setFileCategory(FileCategory fileCategory) {
+		this.fileCategory = fileCategory;
 	}
 
 	@Override
