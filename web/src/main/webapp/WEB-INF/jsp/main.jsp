@@ -1,6 +1,7 @@
 <%@ page contentType="text/html; charset=UTF-8"%>
 <%@ taglib prefix="sec"
 	uri="http://www.springframework.org/security/tags"%>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 <%@ include file="base.jsp"%>
 <%@ page
 	import="org.springframework.security.core.context.SecurityContextHolder"%>
@@ -30,25 +31,27 @@
 					<div id="sticky-anchor"></div>
 					<div class="row" id="sticky">
 						<div class="col-xs-8 col-xs-offset-2">
-							<div class="input-group">
-								<div class="input-group-btn search-panel">
-									<select class="form-control">
-										<option>All files</option>
-										<option>Audio</option>
-										<option>Video</option>
-										<option>Image</option>
-										<option>Text</option>
-									</select>
+							<form:form method="GET" modelAttribute="searchForm" action="result">
+								<div class="input-group">
+									<div class="input-group-btn search-panel">
+										<select class="form-control">
+											<option>All files</option>
+											<option>Audio</option>
+											<option>Video</option>
+											<option>Image</option>
+											<option>Text</option>
+										</select>
+									</div>
+									<input type="hidden" name="search_param" value="all"
+										id="search_param"> <input type="text"
+										class="form-control" name="x" placeholder="Search file...">
+									<span class="input-group-btn">
+										<button class="btn btn-primary" type="button">
+											<span class="glyphicon glyphicon-search"></span>
+										</button>
+									</span>
 								</div>
-								<input type="hidden" name="search_param" value="all"
-									id="search_param"> <input type="text"
-									class="form-control" name="x" placeholder="Search file...">
-								<span class="input-group-btn">
-									<button class="btn btn-primary" type="button">
-										<span class="glyphicon glyphicon-search"></span>
-									</button>
-								</span>
-							</div>
+							</form:form>
 						</div>
 					</div>
 				</div>
