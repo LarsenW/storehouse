@@ -128,3 +128,6 @@ h2 {
 .input-group{
 	margin:15px;
 }
+.input-group-btn.search-panel{
+	width:15%;
+}
