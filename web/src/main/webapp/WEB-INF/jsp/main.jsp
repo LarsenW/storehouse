@@ -23,55 +23,42 @@
 <script src="${basedir}/resources/js/main.js"></script>
 </head>
 <body>
-	<div class="container">
-		<div class="row">
-			<div class="col-md-12">
-				<div id="sticky-anchor"></div>
-				<div class="input-group" id="sticky">
-					<input type="text" class="form-control" placeholder="Search..." />
-					<div class="input-group-btn">
-						<div class="btn-group" role="group">
-							<div class="dropdown dropdown-lg">
-								<button type="button" class="btn btn-default dropdown-toggle"
-									data-toggle="dropdown" aria-expanded="false">
-									<span class="caret"></span>
-								</button>
-								<div class="dropdown-menu dropdown-menu-right" role="menu">
-									<form class="form-horizontal" role="form">
-										<div class="form-group">
-											<label for="filter">Filter by</label> <select
-												class="form-control">
-												<option value="0" selected>All categories</option>
-												<option value="1">Audio</option>
-												<option value="2">Video</option>
-												<option value="3">Image</option>
-												<option value="4">Text</option>
-											</select>
-										</div>
-										<div class="form-group">
-											<label for="contain">Author</label> <input
-												class="form-control" type="text" />
-										</div>
-										<div class="form-group">
-											<label for="contain">Contains the words</label> <input
-												class="form-control" type="text" />
-										</div>
-										<button type="submit" class="btn btn-primary">
-											<span class="glyphicon glyphicon-search" aria-hidden="true"></span>
-										</button>
-									</form>
+	<div id="intro">
+		<div class="container">
+			<div class="row">
+				<div class="col-md-12">
+					<div id="sticky-anchor"></div>
+					<div class="row" id="sticky">
+						<div class="col-xs-8 col-xs-offset-2">
+							<div class="input-group">
+								<div class="input-group-btn search-panel">
+									<button type="button" class="btn btn-primary dropdown-toggle"
+										data-toggle="dropdown">
+										<span id="search_concept">Filter by</span> <span class="caret"></span>
+									</button>
+									<ul class="dropdown-menu" role="menu">
+										<li><a href="#contains">Contains</a></li>
+										<li><a href="#its_equal">It's equal</a></li>
+										<li><a href="#greather_than">Greather than ></a></li>
+										<li><a href="#less_than">Less than </a></li>
+										<li class="divider"></li>
+										<li><a href="#all">Anything</a></li>
+									</ul>
 								</div>
+								<input type="hidden" name="search_param" value="all"
+									id="search_param"> <input type="text"
+									class="form-control" name="x" placeholder="Search term...">
+								<span class="input-group-btn">
+									<button class="btn btn-primary" type="button">
+										<span class="glyphicon glyphicon-search"></span>
+									</button>
+								</span>
 							</div>
-							<button type="button" class="btn btn-primary">
-								<span class="glyphicon glyphicon-search" aria-hidden="true"></span>
-							</button>
 						</div>
 					</div>
 				</div>
 			</div>
 		</div>
-	</div>
-	<div id="intro">
 		<div class="story">
 			<div class="float-left">
 				<h2>Что такое «parallax scrolling» ?</h2>
