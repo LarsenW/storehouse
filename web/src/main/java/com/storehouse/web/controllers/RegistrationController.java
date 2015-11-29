@@ -25,6 +25,6 @@ public class RegistrationController {
 	@RequestMapping(value = { "/registration" }, method = RequestMethod.POST)
 	public String handleUserForm(@ModelAttribute("userForm") User user, BindingResult result, Model model) {
 		userService.persistUser(user);
-		return "main";
+		return "login";
 	}
 }
