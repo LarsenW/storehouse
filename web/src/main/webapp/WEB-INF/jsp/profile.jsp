@@ -22,10 +22,6 @@
 						<div class="profile-usertitle-name">${name}</div>
 						<div class="profile-usertitle-email">${email}</div>
 					</div>
-					<!-- 					<div class="profile-userbuttons"> -->
-					<!-- 						<button type="button" class="btn btn-success btn-sm">Follow</button> -->
-					<!-- 						<button type="button" class="btn btn-danger btn-sm">Message</button> -->
-					<!-- 					</div> -->
 					<div class="profile-usermenu">
 						<ul class="nav">
 							<li class="active"><a href="#" onclick="return false;">
@@ -46,51 +42,21 @@
 			</div>
 			<div class="col-md-9">
 				<div class="profile-content">
-					Some user related content goes here...
-					<!-- 					<table class="table table-hover"> -->
-					<!-- 						<thead> -->
-					<!-- 							<tr> -->
-					<!-- 								<th>Firstname</th> -->
-					<!-- 								<th>Lastname</th> -->
-					<!-- 								<th>Email</th> -->
-					<!-- 							</tr> -->
-					<!-- 						</thead> -->
-					<!-- 						<tbody> -->
-					<!-- 							<tr> -->
-					<!-- 								<td>John</td> -->
-					<!-- 								<td>Doe</td> -->
-					<!-- 								<td>john@example.com</td> -->
-					<!-- 							</tr> -->
-					<!-- 							<tr> -->
-					<!-- 								<td>Mary</td> -->
-					<!-- 								<td>Moe</td> -->
-					<!-- 								<td>mary@example.com</td> -->
-					<!-- 							</tr> -->
-					<!-- 							<tr> -->
-					<!-- 								<td>July</td> -->
-					<!-- 								<td>Dooley</td> -->
-					<!-- 								<td>july@example.com</td> -->
-					<!-- 							</tr> -->
-					<!-- 								<tr> -->
-					<!-- 								<td>John</td> -->
-					<!-- 								<td>Doe</td> -->
-					<!-- 								<td>john@example.com</td> -->
-					<!-- 							</tr> -->
-					<!-- 							<tr> -->
-					<!-- 								<td>Mary</td> -->
-					<!-- 								<td>Moe</td> -->
-					<!-- 								<td>mary@example.com</td> -->
-					<!-- 							</tr> -->
-					<!-- 							<tr> -->
-					<!-- 								<td>July</td> -->
-					<!-- 								<td>Dooley</td> -->
-					<!-- 								<td>july@example.com</td> -->
-					<!-- 							</tr> -->
-
-					<!-- 						</tbody> -->
-					<!-- 					</table> -->
+					<table class="table table-hover" id="result_table">
+						<thead>
+							<tr>
+								<th>Title</th>
+								<th>Description</th>
+								<th>Date</th>
+							</tr>
+						</thead>
+						<tbody>
+							
+						</tbody>
+					</table>
 				</div>
 			</div>
+
 		</div>
 	</div>
 	</div>

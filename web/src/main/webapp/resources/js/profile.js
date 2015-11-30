@@ -10,13 +10,12 @@ $(document).ready(function() {
 			dataType : "json",
 			success : function(data, status) {
 				console.log("Data: " + data + "\nStatus: " + status);
+				for(var i in data){
+					$('#result_table > tbody:last-child').append('<tr><td>'+ data[i].name +'</td>'+
+							'<td>'+ data[i].name +'</td><td>'
+								+new Date(data[i].created).toLocaleDateString() +'</td></tr>');
+				}
 			}
 		});
-		// var data = "somedata"
-		// $.get("getprivatefiles", function(data, status) {
-		// console.log("Data: " + data + "\nStatus: " + status);
-		// console.log(data.name);
-		// });
-
 	});
 });
