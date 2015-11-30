@@ -18,6 +18,7 @@
 		<intercept-url pattern="/upload" access="hasRole('ROLE_USER')" />
 		<intercept-url pattern="/profile" access="hasRole('ROLE_USER')" />
 		<intercept-url pattern="/users" access="hasRole('ROLE_ADMIN')" />
+		<intercept-url pattern="/getprivatefiles" access="hasRole('ROLE_USER')" />
 		<intercept-url pattern="/admin" access="hasRole('ROLE_ADMIN')" />
 		<csrf />
 	</http>
