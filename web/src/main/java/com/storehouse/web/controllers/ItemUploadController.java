@@ -15,7 +15,7 @@ import com.storehouse.common.entity.Item;
 import com.storehouse.common.entity.User;
 
 @Controller
-public class FileUploadController {
+public class ItemUploadController {
 	@Autowired
 	ItemService itemService;
 

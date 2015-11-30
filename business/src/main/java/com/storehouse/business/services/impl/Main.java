@@ -3,9 +3,8 @@ package com.storehouse.business.services.impl;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
-import com.storehouse.business.services.ItemService;
-import com.storehouse.common.entity.Item;
-import com.storehouse.common.enums.FileCategory;
+import com.storehouse.business.services.ItemsGridService;
+import com.storehouse.common.dto.ItemDto;
 
 public class Main {
 	public static void main(String[] args) {
@@ -25,9 +24,9 @@ public class Main {
 		// Item item = new Item();
 		// item.setName("ddt rodina");
 		// item.setFileCategory(FileCategory.AUDIO);
-		ItemService is = (ItemService) context.getBean("itemServiceImpl");
-		for (Item i : is.findAllPrivateByUserId(2l)) {
-			System.out.println(i);
+		ItemsGridService is = (ItemsGridService) context.getBean("itemsGridServiceImpl");
+		for (ItemDto i : is.findAllPrivateByUserId(2l)) {
+			System.out.println(i.getName() + " " + i.getDescription());
 		}
 		// is.persistItem(item);
 	}

@@ -42,13 +42,5 @@ public class ItemServiceImpl implements ItemService {
 		return itemDao.getById(id);
 	}
 
-	public List<Item> findAllByUserId(Long id) {
 
-		return itemDao.findAllByUserId(id);
-	}
-
-	public List<Item> findAllPrivateByUserId(Long id) {
-
-		return itemDao.findAllPrivateByUserId(id);
-	}
 }
