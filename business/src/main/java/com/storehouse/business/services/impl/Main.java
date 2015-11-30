@@ -22,10 +22,13 @@ public class Main {
 		// RoleDao rd = (RoleDao) context.getBean("roleDaoImpl");
 		// rd.persist(r);
 
-		Item item = new Item();
-		item.setName("ddt rodina");
-		item.setFileCategory(FileCategory.AUDIO);
+		// Item item = new Item();
+		// item.setName("ddt rodina");
+		// item.setFileCategory(FileCategory.AUDIO);
 		ItemService is = (ItemService) context.getBean("itemServiceImpl");
-		is.persistItem(item);
+		for (Item i : is.findAllPrivateByUserId(2l)) {
+			System.out.println(i);
+		}
+		// is.persistItem(item);
 	}
 }

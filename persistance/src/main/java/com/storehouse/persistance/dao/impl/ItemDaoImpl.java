@@ -9,7 +9,6 @@ import org.springframework.stereotype.Repository;
 import com.storehouse.common.entity.Item;
 import com.storehouse.persistance.dao.ItemDao;
 
-
 @Repository
 public class ItemDaoImpl extends GenericDaoImpl<Item> implements ItemDao {
 
@@ -19,4 +18,9 @@ public class ItemDaoImpl extends GenericDaoImpl<Item> implements ItemDao {
 		return query.getResultList();
 	}
 
+	@SuppressWarnings("unchecked")
+	public List<Item> findAllPrivateByUserId(Long id) {
+		Query query = entityManager.createQuery("Select i from Item i where i.user.id=" + id + " " + "and i.privacy=1");
+		return query.getResultList();
+	}
 }

@@ -16,4 +16,6 @@ public interface ItemService {
 	public Item getById(Long id);
 
 	public List<Item> findAllByUserId(Long id);
+
+	public List<Item> findAllPrivateByUserId(Long id);
 }
