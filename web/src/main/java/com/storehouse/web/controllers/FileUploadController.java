@@ -31,6 +31,6 @@ public class FileUploadController {
 		User user = (User) authentication.getPrincipal();
 		item.setUser(user);
 		itemService.persistItem(item);
-		return "main";
+		return "redirect:/profile";
 	}
 }
