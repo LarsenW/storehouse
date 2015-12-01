@@ -23,7 +23,7 @@ public class ItemsGridController {
 	public @ResponseBody List<ItemDto> getUserPrivateFiles() {
 		Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
 		User user = (User) authentication.getPrincipal();
-		List<ItemDto> items = itemsGridService.findAllPrivateByUserId(user.getId());
+		List<ItemDto> items = itemsGridService.findAllByUserId(user.getId(),true);
 		return items;
 	}
 }

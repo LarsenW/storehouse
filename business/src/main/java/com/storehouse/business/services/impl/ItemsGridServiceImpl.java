@@ -29,10 +29,10 @@ public class ItemsGridServiceImpl implements ItemsGridService {
 		return itemDtos;
 	}
 
-	public List<ItemDto> findAllPrivateByUserId(Long id) {
+	public List<ItemDto> findAllByUserId(Long id, Boolean privacy) {
 		ItemMapper itemMapper = new ItemMapper();
 		List<ItemDto> itemDtos = new ArrayList<ItemDto>();
-		for (Item item : itemDao.findAllPrivateByUserId(id)) {
+		for (Item item : itemDao.findAllByUserId(id, privacy)) {
 			itemDtos.add(itemMapper.entityToDto(item));
 		}
 		return itemDtos;

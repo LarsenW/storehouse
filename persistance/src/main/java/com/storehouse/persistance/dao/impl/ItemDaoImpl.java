@@ -14,13 +14,17 @@ public class ItemDaoImpl extends GenericDaoImpl<Item> implements ItemDao {
 
 	@SuppressWarnings("unchecked")
 	public List<Item> findAllByUserId(Long id) {
-		Query query = entityManager.createQuery("Select i from Item i where i.user.id=" + id);
-		return query.getResultList();
+		Query jpqlQuery = entityManager.createQuery("Select i from Item i where i.user.id= :id");
+		jpqlQuery.setParameter("id", id);
+		return jpqlQuery.getResultList();
 	}
 
 	@SuppressWarnings("unchecked")
-	public List<Item> findAllPrivateByUserId(Long id) {
-		Query query = entityManager.createQuery("Select i from Item i where i.user.id=" + id + " " + "and i.privacy=1");
-		return query.getResultList();
+	public List<Item> findAllByUserId(Long id, Boolean privacy) {
+		Query jpqlQuery = entityManager
+				.createQuery("Select i from Item i where i.user.id= :id and i.privacy= :privacy");
+		jpqlQuery.setParameter("id", id);
+		jpqlQuery.setParameter("privacy", privacy);
+		return jpqlQuery.getResultList();
 	}
 }

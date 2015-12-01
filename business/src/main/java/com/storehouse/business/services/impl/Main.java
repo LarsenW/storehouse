@@ -25,7 +25,7 @@ public class Main {
 		// item.setName("ddt rodina");
 		// item.setFileCategory(FileCategory.AUDIO);
 		ItemsGridService is = (ItemsGridService) context.getBean("itemsGridServiceImpl");
-		for (ItemDto i : is.findAllPrivateByUserId(2l)) {
+		for (ItemDto i : is.findAllByUserId(2l,true)) {
 			System.out.println(i.getName() + " " + i.getDescription());
 		}
 		// is.persistItem(item);
