@@ -56,7 +56,7 @@
 							<tr>
 								<th>Title</th>
 								<th>Description</th>
-								<th>Created</th>
+								<th>Create</th>
 							</tr>
 						</thead>
 						<tfoot>
