@@ -8,7 +8,14 @@
 <title>Insert title here</title>
 <link rel="stylesheet" href="${basedir}/resources/css/profile.css">
 <script src="${basedir}/resources/js/profile.js"></script>
-</head>
+<script
+	src="https://cdn.datatables.net/1.10.10/js/jquery.dataTables.min.js"></script>
+<script
+	src="https://cdn.datatables.net/1.10.10/js/dataTables.bootstrap.min.js"></script>
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+<link rel="stylesheet"
+	href="https://cdn.datatables.net/1.10.10/css/dataTables.bootstrap.min.css">
 <body>
 	<div class="container">
 		<div class="row profile custom_form shadow">
@@ -24,8 +31,9 @@
 					</div>
 					<div class="profile-usermenu">
 						<ul class="nav">
-							<li class="active"><a href="#" onclick="return false;">
-									<i class="glyphicon glyphicon-eye-open"></i> Public files
+							<li id="public" class="active"><a href="#"
+								onclick="return false;"> <i
+									class="glyphicon glyphicon-eye-open"></i> Public files
 							</a></li>
 							<li id="private"><a href="#" onclick="return false;"> <i
 									class="glyphicon glyphicon-lock"></i> Private files
@@ -42,23 +50,29 @@
 			</div>
 			<div class="col-md-9">
 				<div class="profile-content">
-					<table class="table table-hover" id="result_table">
+					<table class="table table-striped table-bordered" cellspacing="0"
+						width="100%" id="result_table">
 						<thead>
 							<tr>
 								<th>Title</th>
 								<th>Description</th>
-								<th>Date</th>
+								<th>Created</th>
 							</tr>
 						</thead>
+						<tfoot>
+							<tr>
+								<th>Title</th>
+								<th>Description</th>
+								<th>Created</th>
+							</tr>
+						</tfoot>
 						<tbody>
-							
 						</tbody>
 					</table>
 				</div>
 			</div>
 
 		</div>
-	</div>
 	</div>
 </body>
 </html>

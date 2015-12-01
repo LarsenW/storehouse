@@ -23,7 +23,15 @@ public class ItemsGridController {
 	public @ResponseBody List<ItemDto> getUserPrivateFiles() {
 		Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
 		User user = (User) authentication.getPrincipal();
-		List<ItemDto> items = itemsGridService.findAllByUserId(user.getId(),true);
+		List<ItemDto> items = itemsGridService.findAllByUserId(user.getId(), true);
+		return items;
+	}
+
+	@RequestMapping(value = { "/getpublicfiles" }, method = RequestMethod.GET)
+	public @ResponseBody List<ItemDto> getUserPublicFiles() {
+		Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+		User user = (User) authentication.getPrincipal();
+		List<ItemDto> items = itemsGridService.findAllByUserId(user.getId(), false);
 		return items;
 	}
 }
