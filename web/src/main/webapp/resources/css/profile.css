@@ -1,5 +1,5 @@
 body {
-/* 		background: #F1F3FA; */
+	background: url('../images/userbg.jpg');
 	background-color: #DCDCDC;
 }
 
@@ -116,10 +116,12 @@ body {
 .shadow {
 	box-shadow: rgba(0, 0, 0, 0.3) 20px 20px 20px;
 }
+
 td.details-control {
-    background: url('../images/details_open.png') no-repeat center center;
-    cursor: pointer;
+	background: url('../images/details_open.png') no-repeat center center;
+	cursor: pointer;
 }
+
 tr.shown td.details-control {
-    background: url('../images/details_close.png') no-repeat center center;
+	background: url('../images/details_close.png') no-repeat center center;
 }
