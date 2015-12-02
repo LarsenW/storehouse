@@ -33,7 +33,9 @@ function drawPublic() {
 	table = $('#result_table').DataTable({
 		retrieve : true,
 		"ajax" : {
+			
 			"url" : "getpublicfiles",
+//			"type": "POST",
 			"dataSrc" : ""
 		},
 		"columns" : [ {
@@ -57,6 +59,7 @@ function drawPrivate() {
 	table = $('#result_table').DataTable({
 		"ajax" : {
 			"url" : "getprivatefiles",
+			"type": "POST",
 			"dataSrc" : ""
 		},
 		"columns" : [ {

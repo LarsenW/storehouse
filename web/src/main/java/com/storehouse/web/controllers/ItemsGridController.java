@@ -19,7 +19,7 @@ public class ItemsGridController {
 	@Autowired
 	ItemsGridService itemsGridService;
 
-	@RequestMapping(value = { "/getprivatefiles" }, method = RequestMethod.GET)
+	@RequestMapping(value = { "getprivatefiles" }, method = RequestMethod.GET)
 	public @ResponseBody List<ItemDto> getUserPrivateFiles() {
 		Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
 		User user = (User) authentication.getPrincipal();
@@ -27,7 +27,7 @@ public class ItemsGridController {
 		return items;
 	}
 
-	@RequestMapping(value = { "/getpublicfiles" }, method = RequestMethod.GET)
+	@RequestMapping(value = { "getpublicfiles" }, method = RequestMethod.GET)
 	public @ResponseBody List<ItemDto> getUserPublicFiles() {
 		Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
 		User user = (User) authentication.getPrincipal();
