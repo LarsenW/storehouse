@@ -51,7 +51,7 @@
 			</div>
 			<div class="col-md-9">
 				<div class="profile-content">
-					<table class="table table-striped table-bordered" cellspacing="0"
+					<table class="table table-bordered" cellspacing="0"
 						width="100%" id="result_table">
 						<thead>
 							<tr>

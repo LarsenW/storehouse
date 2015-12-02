@@ -3,7 +3,6 @@ body {
 	background-color: #DCDCDC;
 }
 
-/* Profile container */
 .profile {
 	margin: 20px 0;
 }
@@ -101,10 +100,8 @@ body {
 	margin-left: -2px;
 }
 
-/* Profile Content */
 .profile-content {
 	padding: 20px;
-	/* 	background: #fff; */
 	background-color: transparent;
 	min-height: 460px;
 }
@@ -124,4 +121,13 @@ td.details-control {
 
 tr.shown td.details-control {
 	background: url('../images/details_close.png') no-repeat center center;
+}
+tr.even{
+	background-color: white;
+}
+tr.odd{
+	background-color: #F0F0F0 ;
+}
+tbody{
+	background-color: #FFFFFF ;
 }
