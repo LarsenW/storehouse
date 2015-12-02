@@ -26,7 +26,7 @@ public class Item extends Model {
 	private User user;
 
 	@Enumerated(EnumType.STRING)
-	private FileCategory fileCategory;
+	private FileCategory fileCategory = FileCategory.OTHER;
 
 	public String getName() {
 		return name;

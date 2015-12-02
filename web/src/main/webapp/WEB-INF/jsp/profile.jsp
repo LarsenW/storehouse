@@ -56,7 +56,7 @@
 						<thead>
 							<tr>
 								<th>Title</th>
-								<th>Description</th>
+								<th>Category</th>
 								<th>Created</th>
 								<th></th>
 							</tr>
@@ -64,7 +64,7 @@
 						<tfoot>
 							<tr>
 								<th>Title</th>
-								<th>Description</th>
+								<th>Category</th>
 								<th>Created</th>
 								<th></th>
 							</tr>

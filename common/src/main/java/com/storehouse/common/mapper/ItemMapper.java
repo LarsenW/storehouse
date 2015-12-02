@@ -10,6 +10,7 @@ public class ItemMapper {
 		itemDto.setDescription(item.getDescription());
 		itemDto.setData(item.getData());
 		itemDto.setCreated(item.getCreated());
+		itemDto.setFileCategory(item.getFileCategory());
 		return itemDto;
 	}
 }
