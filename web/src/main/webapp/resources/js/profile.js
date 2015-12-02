@@ -77,7 +77,7 @@ function drawButtons() {
 
 }
 function format(d) {
-	return '<table cellpadding="5" cellspacing="0" border="0" style="padding-left:50px;">'
+	return '<table id="subtable" cellpadding="5" cellspacing="0" border="0" style="padding-left:50px;">'
 			+ '<tr>'
 			+ '<td>Full name:</td>'
 			+ '<td>'
@@ -85,14 +85,12 @@ function format(d) {
 			+ '</td>'
 			+ '</tr>'
 			+ '<tr>'
-			+ '<td>Extension number:</td>'
+			+ '<td>Description:</td>'
 			+ '<td>'
-			+ d.extn
+			+ d.description
 			+ '</td>'
 			+ '</tr>'
 			+ '<tr>'
-			+ '<td>Extra info:</td>'
-			+ '<td>And any further details here (images etc)...</td>'
-			+ '</tr>'
-			+ '</table>';
+			+ '<td><a href="#">Download <a/><span class="glyphicon glyphicon-download"></span></td>'
+			+ '</tr>' + '</table>';
 }
