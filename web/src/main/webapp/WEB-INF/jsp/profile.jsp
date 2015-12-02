@@ -7,6 +7,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
 <link rel="stylesheet" href="${basedir}/resources/css/profile.css">
+<!-- <link rel="stylesheet" href="https://cdn.datatables.net/1.10.10/css/jquery.dataTables.min.css"> -->
 <script src="${basedir}/resources/js/profile.js"></script>
 <script
 	src="https://cdn.datatables.net/1.10.10/js/jquery.dataTables.min.js"></script>
@@ -56,7 +57,8 @@
 							<tr>
 								<th>Title</th>
 								<th>Description</th>
-								<th>Create</th>
+								<th>Created</th>
+								<th></th>
 							</tr>
 						</thead>
 						<tfoot>
@@ -64,6 +66,7 @@
 								<th>Title</th>
 								<th>Description</th>
 								<th>Created</th>
+								<th></th>
 							</tr>
 						</tfoot>
 						<tbody>
