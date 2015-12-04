@@ -11,32 +11,32 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
 
-import com.storehouse.business.services.ItemService;
-import com.storehouse.common.entity.Item;
+import com.storehouse.business.services.ItemCreatingService;
+import com.storehouse.common.dto.ItemDto;
 import com.storehouse.common.entity.User;
 
 @Controller
 public class ItemUploadController {
 	@Autowired
-	ItemService itemService;
+	ItemCreatingService itemCreatingService;
 
 	@RequestMapping(value = { "/upload" }, method = RequestMethod.GET)
 	public String showUploadForm(Model model) {
-		model.addAttribute("itemForm", new Item());
+		model.addAttribute("itemForm", new ItemDto());
 		return "upload";
 	}
 
 	@RequestMapping(value = "/upload", method = RequestMethod.POST)
-	public String handleFileUpload(@ModelAttribute("itemForm") Item item, @RequestParam("file") MultipartFile file) {
+	public String handleFileUpload(@ModelAttribute("itemForm") ItemDto itemDto, @RequestParam("file") MultipartFile file) {
 		Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
 		User user = (User) authentication.getPrincipal();
-		item.setUser(user);
+		itemDto.setUser(user);
 		
 		if (!file.isEmpty()) {
 			try {
-				item.setData(file.getBytes());
+				itemDto.setData(file.getBytes());
 				System.out.println(file.getBytes().length);
-				itemService.persistItem(item);
+				itemCreatingService.createItem(itemDto);
 				return "profile";
 			} catch (Exception e) {
 				return "upload";

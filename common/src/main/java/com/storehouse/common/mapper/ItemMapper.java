@@ -13,4 +13,15 @@ public class ItemMapper {
 		itemDto.setFileCategory(item.getFileCategory());
 		return itemDto;
 	}
+
+	public Item dtoToEntity(ItemDto itemDto) {
+		Item item = new Item();
+		item.setName(itemDto.getName());
+		item.setDescription(itemDto.getDescription());
+		item.setPrivacy(itemDto.getPrivacy());
+		item.setData(itemDto.getData());
+		item.setFileCategory(itemDto.getFileCategory());
+		item.setUser(itemDto.getUser());
+		return item;
+	}
 }

@@ -2,6 +2,7 @@ package com.storehouse.common.dto;
 
 import java.util.Date;
 
+import com.storehouse.common.entity.User;
 import com.storehouse.common.enums.FileCategory;
 
 public class ItemDto {
@@ -10,11 +11,15 @@ public class ItemDto {
 	private String description;
 
 	private Date created;
+	
+	private Boolean privacy;
 
 	private FileCategory fileCategory;
 
 	private byte[] data;
 
+	private User user;	
+	
 	public String getName() {
 		return name;
 	}
@@ -39,6 +44,14 @@ public class ItemDto {
 		this.created = created;
 	}
 
+	public Boolean getPrivacy() {
+		return privacy;
+	}
+
+	public void setPrivacy(Boolean privacy) {
+		this.privacy = privacy;
+	}
+
 	public FileCategory getFileCategory() {
 		return fileCategory;
 	}
@@ -53,6 +66,14 @@ public class ItemDto {
 
 	public void setData(byte[] data) {
 		this.data = data;
+	}
+
+	public User getUser() {
+		return user;
+	}
+
+	public void setUser(User user) {
+		this.user = user;
 	}
 
 }
