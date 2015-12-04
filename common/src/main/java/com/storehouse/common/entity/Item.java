@@ -1,5 +1,6 @@
 package com.storehouse.common.entity;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
@@ -17,6 +18,7 @@ public class Item extends Model {
 
 	private String description;
 
+	@Column(columnDefinition = "LONGBLOB")
 	private byte[] data;
 
 	private Boolean privacy = false;

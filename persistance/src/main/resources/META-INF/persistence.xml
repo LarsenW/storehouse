@@ -10,7 +10,7 @@
 		<class>com.storehouse.common.entity.Item</class>
 		<class>com.storehouse.common.entity.Role</class>
 		<properties>
-			<property name="hibernate.hbm2ddl.auto" value="update" />
+			<property name="hibernate.hbm2ddl.auto" value="create" />
 		</properties>
 	</persistence-unit>
 </persistence>
