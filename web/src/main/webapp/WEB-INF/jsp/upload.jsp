@@ -2,7 +2,7 @@
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 <%@ include file="base.jsp"%>
-<!DOCTYPE">
+<!DOCTYPE html>
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
@@ -21,7 +21,8 @@
 							file</h3>
 					</div>
 					<div class="panel-body">
-						<form:form method="POST" modelAttribute="itemForm" action="upload">
+						<form:form method="POST" modelAttribute="itemForm" action="upload"
+							enctype="multipart/form-data">
 							<div class="form-group">
 								<form:input type="text" name="name" id="name" path="name"
 									class="form-control input-sm glowing-border" placeholder="Name" />
@@ -42,8 +43,8 @@
 							<br>
 							<div class="input-group">
 								<span class="input-group-btn"> <span
-									class="btn btn-info btn-file"> Browse… <form:input
-											type="file" path="data" />
+									class="btn btn-info btn-file"> Browse… <input
+											type="file" name="file" >
 								</span>
 								</span> <input id="file_upload" type="text" class="form-control"
 									placeholder="file is not chosen" readonly="readonly">

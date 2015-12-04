@@ -1,15 +1,15 @@
 package com.storehouse.web.controllers;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.multipart.MultipartFile;
 
 import com.storehouse.business.services.ItemService;
 import com.storehouse.common.entity.Item;
@@ -26,12 +26,24 @@ public class ItemUploadController {
 		return "upload";
 	}
 
-	@RequestMapping(value = { "/upload" }, method = RequestMethod.POST)
-	public String handleFileUpload(@ModelAttribute("itemForm") Item item, BindingResult result, Model model) {
+	@RequestMapping(value = "/upload", method = RequestMethod.POST)
+	public String handleFileUpload(@ModelAttribute("itemForm") Item item, @RequestParam("file") MultipartFile file) {
 		Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
 		User user = (User) authentication.getPrincipal();
 		item.setUser(user);
-		itemService.persistItem(item);
-		return "redirect:/profile";
+		
+		if (!file.isEmpty()) {
+			try {
+				item.setData(file.getBytes());
+				System.out.println(file.getBytes().length);
+				itemService.persistItem(item);
+				return "profile";
+			} catch (Exception e) {
+				return "upload";
+			}
+		} else {
+			return "upload";
+		}
 	}
+
 }
