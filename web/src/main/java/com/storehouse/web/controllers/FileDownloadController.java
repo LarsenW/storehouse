@@ -23,12 +23,13 @@ public class FileDownloadController {
 
 	@RequestMapping(value = "/download/{id}", method = RequestMethod.GET)
 	public void handleFileDownloading(@PathVariable Long id, HttpServletResponse response) {
-		
-		response.setContentType("application/octet-stream");
-		
+
 		Item item = itemService.getById(id);
 		byte[] data = item.getData();
-		
+
+		response.setContentType("application/octet-stream");
+		response.setHeader("Content-Disposition", "attachment; filename=\"" + item.getName()+"\"");
+
 		InputStream in = new ByteArrayInputStream(data);
 		try {
 			ServletOutputStream out = response.getOutputStream();

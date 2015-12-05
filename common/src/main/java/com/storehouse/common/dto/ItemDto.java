@@ -12,7 +12,7 @@ public class ItemDto {
 
 	private Date created;
 	
-	private Boolean privacy;
+	private Boolean privacy=false;
 
 	private FileCategory fileCategory;
 

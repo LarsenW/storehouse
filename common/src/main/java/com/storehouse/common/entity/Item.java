@@ -21,7 +21,7 @@ public class Item extends Model {
 	@Column(columnDefinition = "LONGBLOB")
 	private byte[] data;
 
-	private Boolean privacy = false;
+	private Boolean privacy;
 
 	@ManyToOne
 	@JoinColumn
