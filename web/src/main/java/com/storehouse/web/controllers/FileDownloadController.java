@@ -28,7 +28,8 @@ public class FileDownloadController {
 		byte[] data = item.getData();
 
 		response.setContentType("application/octet-stream");
-		response.setHeader("Content-Disposition", "attachment; filename=\"" + item.getName()+"\"");
+		response.setHeader("Content-Disposition", "attachment; filename=\"" + item.getName() + "\"");
+		response.setContentLength(data.length);
 
 		InputStream in = new ByteArrayInputStream(data);
 		try {
