@@ -2,10 +2,10 @@ package com.storehouse.business.services;
 
 import java.util.List;
 
-import com.storehouse.common.dto.ItemDto;
+import com.storehouse.common.dto.ItemGridDto;
 
 public interface ItemsGridService {
-	public List<ItemDto> findAllByUserId(Long id);
+	public List<ItemGridDto> findAllByUserId(Long id);
 
-	public List<ItemDto> findAllByUserId(Long id, Boolean privacy);
+	public List<ItemGridDto> findAllByUserId(Long id, Boolean privacy);
 }

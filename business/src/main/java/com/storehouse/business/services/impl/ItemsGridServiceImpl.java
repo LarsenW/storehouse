@@ -9,9 +9,9 @@ import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.storehouse.business.services.ItemsGridService;
-import com.storehouse.common.dto.ItemDto;
+import com.storehouse.common.dto.ItemGridDto;
 import com.storehouse.common.entity.Item;
-import com.storehouse.common.mapper.ItemMapper;
+import com.storehouse.common.mapper.ItemGridMapper;
 import com.storehouse.persistance.dao.ItemDao;
 
 @Service
@@ -20,21 +20,21 @@ public class ItemsGridServiceImpl implements ItemsGridService {
 	@Autowired
 	ItemDao itemDao;
 
-	public List<ItemDto> findAllByUserId(Long id) {
-		ItemMapper itemMapper = new ItemMapper();
-		List<ItemDto> itemDtos = new ArrayList<ItemDto>();
+	public List<ItemGridDto> findAllByUserId(Long id) {
+		ItemGridMapper itemGridMapper = new ItemGridMapper();
+		List<ItemGridDto> itemGridDtos = new ArrayList<ItemGridDto>();
 		for (Item item : itemDao.findAllByUserId(id)) {
-			itemDtos.add(itemMapper.entityToDto(item));
+			itemGridDtos.add(itemGridMapper.entityToDto(item));
 		}
-		return itemDtos;
+		return itemGridDtos;
 	}
 
-	public List<ItemDto> findAllByUserId(Long id, Boolean privacy) {
-		ItemMapper itemMapper = new ItemMapper();
-		List<ItemDto> itemDtos = new ArrayList<ItemDto>();
+	public List<ItemGridDto> findAllByUserId(Long id, Boolean privacy) {
+		ItemGridMapper itemGridMapper = new ItemGridMapper();
+		List<ItemGridDto> itemGridDtos = new ArrayList<ItemGridDto>();
 		for (Item item : itemDao.findAllByUserId(id, privacy)) {
-			itemDtos.add(itemMapper.entityToDto(item));
+			itemGridDtos.add(itemGridMapper.entityToDto(item));
 		}
-		return itemDtos;
+		return itemGridDtos;
 	}
 }

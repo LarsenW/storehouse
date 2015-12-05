@@ -11,15 +11,15 @@ public class ItemDto {
 	private String description;
 
 	private Date created;
-	
-	private Boolean privacy=false;
 
-	private FileCategory fileCategory;
+	private Boolean privacy = false;
+
+	private FileCategory fileCategory = FileCategory.OTHER;
 
 	private byte[] data;
 
-	private User user;	
-	
+	private User user;
+
 	public String getName() {
 		return name;
 	}
