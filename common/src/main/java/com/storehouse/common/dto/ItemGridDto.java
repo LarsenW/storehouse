@@ -20,8 +20,6 @@ public class ItemGridDto {
 
 	private Boolean privacy;
 
-	//private User user;
-
 	public Long getId() {
 		return id;
 	}
@@ -78,13 +76,4 @@ public class ItemGridDto {
 		this.privacy = privacy;
 	}
 
-//	public User getUser() {
-//		return user;
-//	}
-//
-//	public void setUser(User user) {
-//		this.user = user;
-//	}
-	
-	
 }

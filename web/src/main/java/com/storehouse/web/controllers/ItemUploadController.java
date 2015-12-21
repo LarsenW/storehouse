@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
 
 import com.storehouse.business.services.ItemCreatingService;
+import com.storehouse.common.dto.FileDto;
 import com.storehouse.common.dto.ItemDto;
 import com.storehouse.common.entity.User;
 
@@ -34,9 +35,12 @@ public class ItemUploadController {
 		
 		if (!file.isEmpty()) {
 			try {
-				itemDto.setData(file.getBytes());
+				FileDto fileDto=new FileDto();
+				fileDto.setData(file.getBytes());
+				//itemDto.setFileDto(fileDto);
 				System.out.println(file.getBytes().length);
-				itemCreatingService.createItem(itemDto);
+				
+				itemCreatingService.createItemWithFile(itemDto, fileDto);
 				return "profile";
 			} catch (Exception e) {
 				return "upload";

@@ -9,6 +9,7 @@
 		<class>com.storehouse.common.entity.User</class>
 		<class>com.storehouse.common.entity.Item</class>
 		<class>com.storehouse.common.entity.Role</class>
+		<class>com.storehouse.common.entity.File</class>
 		<properties>
 			<property name="hibernate.hbm2ddl.auto" value="update" />
 		</properties>

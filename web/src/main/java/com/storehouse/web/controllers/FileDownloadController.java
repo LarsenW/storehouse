@@ -25,7 +25,7 @@ public class FileDownloadController {
 	public void handleFileDownloading(@PathVariable Long id, HttpServletResponse response) {
 
 		Item item = itemService.getById(id);
-		byte[] data = item.getData();
+		byte[] data = item.getFile().getData();
 
 		response.setContentType("application/octet-stream");
 		response.setHeader("Content-Disposition", "attachment; filename=\"" + item.getName() + "\"");

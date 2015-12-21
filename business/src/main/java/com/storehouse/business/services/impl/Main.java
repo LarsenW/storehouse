@@ -3,8 +3,8 @@ package com.storehouse.business.services.impl;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
-import com.storehouse.business.services.ItemsGridService;
-import com.storehouse.common.dto.ItemGridDto;
+import com.storehouse.business.services.ItemService;
+import com.storehouse.common.entity.Item;
 
 public class Main {
 	public static void main(String[] args) {
@@ -22,12 +22,26 @@ public class Main {
 		// rd.persist(r);
 
 		// Item item = new Item();
-		// item.setName("ddt rodina");
+		// item.setName("ddt osen");
 		// item.setFileCategory(FileCategory.AUDIO);
-		ItemsGridService is = (ItemsGridService) context.getBean("itemsGridServiceImpl");
-		for (ItemGridDto i : is.findAllByUserId(2l,true)) {
-			System.out.println(i.getName() + " " + i.getDescription());
-		}
+		ItemService is = (ItemService) context.getBean("itemServiceImpl");
+
+		Item i = is.getById(1l);
+		int l ;
+		l=i.getFile().getData().length;
+		System.out.println(l);
+		// FileService is = (FileService) context.getBean("fileServiceImpl");
+
+		// File file = new File();
+		//
+		// byte[] array = { 0, 1, 1 };
+		// file.setData(array);
+		//
+		// item.setFile(file);
+		// file.setItem(item);
+		//
+		// // is.persistFile(file);
 		// is.persistItem(item);
+
 	}
 }

@@ -1,11 +1,13 @@
 package com.storehouse.common.entity;
 
-import javax.persistence.Column;
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
+import javax.persistence.FetchType;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 import com.storehouse.common.enums.FileCategory;
@@ -18,8 +20,9 @@ public class Item extends Model {
 
 	private String description;
 
-	@Column(columnDefinition = "LONGBLOB")
-	private byte[] data;
+	
+	@OneToOne(mappedBy = "item", cascade=CascadeType.ALL,fetch=FetchType.LAZY)
+	private File file;
 
 	private Boolean privacy;
 
@@ -46,12 +49,12 @@ public class Item extends Model {
 		this.description = description;
 	}
 
-	public byte[] getData() {
-		return data;
+	public File getFile() {
+		return file;
 	}
 
-	public void setData(byte[] data) {
-		this.data = data;
+	public void setFile(File file) {
+		this.file = file;
 	}
 
 	public Boolean getPrivacy() {

@@ -9,7 +9,6 @@ public class ItemMapper {
 		item.setName(itemDto.getName());
 		item.setDescription(itemDto.getDescription());
 		item.setPrivacy(itemDto.getPrivacy());
-		item.setData(itemDto.getData());
 		item.setFileCategory(itemDto.getFileCategory());
 		item.setUser(itemDto.getUser());
 		return item;
