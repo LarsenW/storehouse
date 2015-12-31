@@ -18,32 +18,32 @@ import com.storehouse.common.entity.Item;
 
 @Controller
 public class FileDownloadController {
-	@Autowired
-	ItemService itemService;
-
-	@RequestMapping(value = "/download/{id}", method = RequestMethod.GET)
-	public void handleFileDownloading(@PathVariable Long id, HttpServletResponse response) {
-
-		Item item = itemService.getById(id);
-		byte[] data = item.getFile().getData();
-
-		response.setContentType("application/octet-stream");
-		response.setHeader("Content-Disposition", "attachment; filename=\"" + item.getName() + "\"");
-		response.setContentLength(data.length);
-
-		InputStream in = new ByteArrayInputStream(data);
-		try {
-			ServletOutputStream out = response.getOutputStream();
-			while (in.read(data, 0, data.length) != -1) {
-				out.write(data, 0, data.length);
-			}
-			in.close();
-			out.flush();
-			out.close();
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
-
-	}
+//	@Autowired
+//	ItemService itemService;
+//
+//	@RequestMapping(value = "/download/{id}", method = RequestMethod.GET)
+//	public void handleFileDownloading(@PathVariable Long id, HttpServletResponse response) {
+//
+//		Item item = itemService.getById(id);
+//		byte[] data = item.getFile().getData();
+//
+//		response.setContentType("application/octet-stream");
+//		response.setHeader("Content-Disposition", "attachment; filename=\"" + item.getName() + "\"");
+//		response.setContentLength(data.length);
+//
+//		InputStream in = new ByteArrayInputStream(data);
+//		try {
+//			ServletOutputStream out = response.getOutputStream();
+//			while (in.read(data, 0, data.length) != -1) {
+//				out.write(data, 0, data.length);
+//			}
+//			in.close();
+//			out.flush();
+//			out.close();
+//		} catch (IOException e) {
+//			e.printStackTrace();
+//		}
+//
+//	}
 
 }

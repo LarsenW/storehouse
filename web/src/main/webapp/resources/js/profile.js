@@ -91,6 +91,6 @@ function format(d) {
 			+ '</td>'
 			+ '</tr>'
 			+ '<tr>'
-			+ '<td><a href="#">Download <a/><span class="glyphicon glyphicon-download"></span></td>'
+			+ '<td><a href="http://localhost:8080/filehandler/">Download <a/><span class="glyphicon glyphicon-download"></span></td>'
 			+ '</tr>' + '</table>';
 }

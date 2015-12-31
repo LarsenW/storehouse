@@ -20,9 +20,7 @@ public class Item extends Model {
 
 	private String description;
 
-	
-	@OneToOne(mappedBy = "item", cascade=CascadeType.ALL,fetch=FetchType.LAZY)
-	private File file;
+	private String link;
 
 	private Boolean privacy;
 
@@ -48,16 +46,7 @@ public class Item extends Model {
 	public void setDescription(String description) {
 		this.description = description;
 	}
-
-	public File getFile() {
-		return file;
-	}
-
-	public void setFile(File file) {
-		this.file = file;
-	}
-
-	public Boolean getPrivacy() {
+		public Boolean getPrivacy() {
 		return privacy;
 	}
 
@@ -79,6 +68,14 @@ public class Item extends Model {
 
 	public void setFileCategory(FileCategory fileCategory) {
 		this.fileCategory = fileCategory;
+	}
+
+	public String getLink() {
+		return link;
+	}
+
+	public void setLink(String link) {
+		this.link = link;
 	}
 
 	@Override
