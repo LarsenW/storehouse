@@ -2,6 +2,8 @@ package com.storehouse.web.utils;
 
 import java.io.File;
 import java.io.IOException;
+import java.util.HashMap;
+import java.util.Map;
 
 import javax.servlet.ServletContext;
 import javax.xml.parsers.SAXParser;
@@ -20,15 +22,9 @@ public class RemoteServerParamsResolver {
 	@Autowired
 	private SAXParser parser;
 
+	private Map<String, String> params = new HashMap<>();
+
 	private String configFilePath;
-
-	private String serverHost;
-
-	private int serverPort;
-
-	private String user;
-
-	private String password;
 
 	private DefaultHandler handler = new DefaultHandler() {
 		private String thisElement;
@@ -42,16 +38,16 @@ public class RemoteServerParamsResolver {
 		@Override
 		public void characters(char[] ch, int start, int length) throws SAXException {
 			if (thisElement.equals("host")) {
-				serverHost = new String(ch, start, length);
+				params.put("host", new String(ch, start, length));
 			}
 			if (thisElement.equals("port")) {
-				serverPort = new Integer(new String(ch, start, length));
+				params.put("port", new String(ch, start, length));
 			}
 			if (thisElement.equals("user")) {
-				user = new String(ch, start, length);
+				params.put("user", new String(ch, start, length));
 			}
 			if (thisElement.equals("password")) {
-				password = new String(ch, start, length);
+				params.put("password", new String(ch, start, length));
 			}
 		}
 
@@ -65,21 +61,16 @@ public class RemoteServerParamsResolver {
 
 	}
 
-	public void parse() {
+	public Map<String, String> parse() {
 		try {
 			configFilePath = servletContext.getRealPath("/WEB-INF/ftp-server-params.xml");
 			parser.parse(new File(configFilePath), handler);
+			return params;
 		} catch (SAXException e) {
 			e.printStackTrace();
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
+		return null;
 	}
-
-	@Override
-	public String toString() {
-		return "RemoteServerParamsResolver [serverHost=" + serverHost + ", serverPort=" + serverPort + ", user=" + user
-				+ ", password=" + password + "]";
-	}
-
 }
