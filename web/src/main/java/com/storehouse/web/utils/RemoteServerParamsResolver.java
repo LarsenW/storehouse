@@ -15,8 +15,11 @@ import org.xml.sax.helpers.DefaultHandler;
 @Component
 public class RemoteServerParamsResolver {
 	@Autowired
+	ServletContext servletContext;
+
+	@Autowired
 	private SAXParser parser;
-	
+
 	private String configFilePath;
 
 	private String serverHost;
@@ -39,16 +42,16 @@ public class RemoteServerParamsResolver {
 		@Override
 		public void characters(char[] ch, int start, int length) throws SAXException {
 			if (thisElement.equals("host")) {
-				System.out.println(thisElement);
+				serverHost = new String(ch, start, length);
 			}
 			if (thisElement.equals("port")) {
-				System.out.println(thisElement);
+				serverPort = new Integer(new String(ch, start, length));
 			}
 			if (thisElement.equals("user")) {
-				System.out.println(thisElement);
+				user = new String(ch, start, length);
 			}
 			if (thisElement.equals("password")) {
-				System.out.println(thisElement);
+				password = new String(ch, start, length);
 			}
 		}
 
@@ -58,9 +61,13 @@ public class RemoteServerParamsResolver {
 		}
 	};
 
-	public void parse(String path) {
-		configFilePath=path;
+	public RemoteServerParamsResolver() {
+
+	}
+
+	public void parse() {
 		try {
+			configFilePath = servletContext.getRealPath("/WEB-INF/ftp-server-params.xml");
 			parser.parse(new File(configFilePath), handler);
 		} catch (SAXException e) {
 			e.printStackTrace();
@@ -68,4 +75,11 @@ public class RemoteServerParamsResolver {
 			e.printStackTrace();
 		}
 	}
+
+	@Override
+	public String toString() {
+		return "RemoteServerParamsResolver [serverHost=" + serverHost + ", serverPort=" + serverPort + ", user=" + user
+				+ ", password=" + password + "]";
+	}
+
 }
