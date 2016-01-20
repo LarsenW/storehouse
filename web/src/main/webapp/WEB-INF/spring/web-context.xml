@@ -11,4 +11,10 @@ http://www.springframework.org/schema/tx/spring-tx.xsd">
 
 	<import resource="classpath:business-context.xml" />
 	<import resource="spring-security.xml" />
+	
+	<context:component-scan base-package="com.storehouse.web.utils" />
+	<bean id="parserFactory" class="javax.xml.parsers.SAXParserFactory"
+		factory-method="newInstance" />
+	<bean id="parser" class="javax.xml.parsers.SAXParser"
+		factory-bean="parserFactory" factory-method="newSAXParser" />
 </beans>
