@@ -10,15 +10,16 @@ import org.springframework.stereotype.Component;
 public class PasswordHelper implements PasswordEncoder {
 
 	MessageDigest md;
-	
+
 	public PasswordHelper() {
 		try {
-			md=MessageDigest.getInstance("MD5");
+			md = MessageDigest.getInstance("MD5");
 		} catch (NoSuchAlgorithmException e) {
 			e.printStackTrace();
 		}
 	}
-	
+
+	@Override
 	public String encode(CharSequence rawPassword) {
 		if (md == null) {
 			return rawPassword.toString();
@@ -36,8 +37,9 @@ public class PasswordHelper implements PasswordEncoder {
 		return hexString.toString();
 	}
 
+	@Override
 	public boolean matches(CharSequence rawPassword, String encodedPassword) {
 		return encode(rawPassword).equals(encodedPassword);
 	}
-
+	
 }

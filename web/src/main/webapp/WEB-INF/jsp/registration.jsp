@@ -24,7 +24,7 @@
 					</h2>
 					<hr class="colorgraph">
 					<div class="form-group">
-						<form:input path="name" type="text" name="display_name"
+						<form:input path="username" type="text" name="display_name"
 							id="display_name" class="form-control input-md"
 							placeholder="Display Name" tabindex="3" />
 					</div>
@@ -123,11 +123,8 @@
 							Agree</button>
 					</div>
 				</div>
-				<!-- /.modal-content -->
 			</div>
-			<!-- /.modal-dialog -->
 		</div>
-		<!-- /.modal -->
 	</div>
 </body>
 </html>
