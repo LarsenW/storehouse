@@ -17,6 +17,6 @@ http://www.springframework.org/schema/aop/spring-aop-3.0.xsd ">
 		factory-method="newInstance" />
 	<bean id="parser" class="javax.xml.parsers.SAXParser"
 		factory-bean="parserFactory" factory-method="newSAXParser" />
-	<bean id="ftpClient" class="org.apache.commons.net.ftp.FTPClient" />
- 
+	<bean
+		class="org.springframework.aop.aspectj.annotation.AnnotationAwareAspectJAutoProxyCreator"></bean>
 </beans>

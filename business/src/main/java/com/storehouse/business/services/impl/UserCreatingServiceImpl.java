@@ -1,5 +1,8 @@
 package com.storehouse.business.services.impl;
 
+import java.io.IOException;
+
+import org.apache.commons.net.ftp.FTPClient;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -12,9 +15,17 @@ import com.storehouse.common.mapper.UserMapper;
 public class UserCreatingServiceImpl implements UserCreatingService {
 	@Autowired
 	UserService userService;
-
+	
+	@Autowired
+	FTPClient ftpClient;
+	
 	@Override
 	public void createUser(UserDto userDto) {
+		try {
+			ftpClient.makeDirectory(userDto.getUsername());
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
 		UserMapper userMapper = new UserMapper();
 		userService.persistUser(userMapper.dtoToEntity(userDto));
 	}

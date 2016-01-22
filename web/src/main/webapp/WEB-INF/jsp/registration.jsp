@@ -9,8 +9,6 @@
 <title>Insert title here</title>
 <link rel="stylesheet" href="${basedir}/resources/css/registration.css">
 <script src="${basedir}/resources/js/registration.js"></script>
-<!-- <script type="text/javascript" src="../dist/js/bootstrapValidator.js"></script> -->
-<!-- <link rel="stylesheet" href="../dist/css/bootstrapValidator.css"/> -->
 </head>
 <body>
 	<div class="container">
@@ -27,11 +25,13 @@
 						<form:input path="username" type="text" name="display_name"
 							id="display_name" class="form-control input-md"
 							placeholder="Display Name" tabindex="3" />
+						<form:errors path="username" cssClass="error"/>
 					</div>
 					<div class="form-group">
 						<form:input path="email" type="email" name="email" id="email"
 							class="form-control input-md" placeholder="Email Address"
 							tabindex="4" />
+						<form:errors path="email" cssClass="error"/>
 					</div>
 					<div class="row">
 						<div class="col-xs-12 col-sm-6 col-md-6">
@@ -39,6 +39,7 @@
 								<form:input path="password" type="password" name="password"
 									id="password" class="form-control input-md"
 									placeholder="Password" tabindex="5" />
+								<form:errors path="password" cssClass="error"/>
 							</div>
 						</div>
 						<div class="col-xs-12 col-sm-6 col-md-6">
@@ -72,7 +73,8 @@
 								class="btn btn-primary btn-block btn-md" tabindex="7">
 						</div>
 						<div class="col-xs-12 col-md-6">
-							<a href="login" class="btn btn-success btn-block btn-md">Sign In</a>
+							<a href="login" class="btn btn-success btn-block btn-md">Sign
+								In</a>
 						</div>
 					</div>
 				</form:form>

@@ -2,6 +2,8 @@ package com.storehouse.web.controllers;
 
 import java.io.IOException;
 
+import javax.validation.Valid;
+
 import org.apache.commons.net.ftp.FTPClient;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -19,24 +21,22 @@ import com.storehouse.common.entity.User;
 public class RegistrationController {
 	@Autowired
 	UserCreatingService userCreatingService;
-	@Autowired
-	FTPClient ftpClient;
+
 
 	@RequestMapping(value = { "/registration" }, method = RequestMethod.GET)
 	public String showUserAddForm(Model model) {
-		model.addAttribute("userForm", new User());
-
+		model.addAttribute("userForm", new UserDto());
 		return "registration";
 	}
 
 	@RequestMapping(value = { "/registration" }, method = RequestMethod.POST)
-	public String handleUserForm(@ModelAttribute("userForm") UserDto userDto, BindingResult result, Model model) {
-		try {
-			ftpClient.makeDirectory(userDto.getUsername());
-		} catch (IOException e) {
-			e.printStackTrace();
+	public String handleUserForm(@Valid @ModelAttribute("userForm") UserDto userDto, BindingResult result) {
+		if (result.hasErrors()) {
+			return "registration";
+		} else {
+			userCreatingService.createUser(userDto);
+			return "login";
 		}
-		userCreatingService.createUser(userDto);
-		return "login";
+
 	}
 }

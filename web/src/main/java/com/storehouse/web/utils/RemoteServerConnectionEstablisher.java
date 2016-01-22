@@ -15,7 +15,7 @@ public class RemoteServerConnectionEstablisher {
 	@Autowired
 	private RemoteServerConnector serverConnector;
 
-	@Pointcut("execution(* com.storehouse.web.controllers.RegistrationController.handleUserForm(..))")
+	@Pointcut("execution(* com.storehouse.business.services.impl.UserCreatingServiceImpl.createUser(..))")
 	public void pointcut() {
 	}
 
