@@ -1,4 +1,4 @@
-package com.storehouse.web.utils;
+package com.storehouse.business.utils;
 
 import java.io.IOException;
 import java.net.SocketException;

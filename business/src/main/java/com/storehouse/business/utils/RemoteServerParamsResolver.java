@@ -1,14 +1,12 @@
-package com.storehouse.web.utils;
+package com.storehouse.business.utils;
 
-import java.io.File;
 import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
-
-import javax.servlet.ServletContext;
 import javax.xml.parsers.SAXParser;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.core.io.ClassPathResource;
 import org.springframework.stereotype.Component;
 import org.xml.sax.Attributes;
 import org.xml.sax.SAXException;
@@ -17,14 +15,9 @@ import org.xml.sax.helpers.DefaultHandler;
 @Component
 public class RemoteServerParamsResolver {
 	@Autowired
-	ServletContext servletContext;
-
-	@Autowired
 	private SAXParser parser;
 
 	private Map<String, String> params = new HashMap<>();
-
-	private String configFilePath;
 
 	private DefaultHandler handler = new DefaultHandler() {
 		private String thisElement;
@@ -62,9 +55,8 @@ public class RemoteServerParamsResolver {
 	}
 
 	public Map<String, String> parse() {
-		try {
-			configFilePath = servletContext.getRealPath("/WEB-INF/ftp-server-params.xml");
-			parser.parse(new File(configFilePath), handler);
+		try {			
+			parser.parse(new ClassPathResource("ftp-server-params.xml").getInputStream(), handler);
 			return params;
 		} catch (SAXException e) {
 			e.printStackTrace();

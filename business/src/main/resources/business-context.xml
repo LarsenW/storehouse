@@ -14,4 +14,10 @@ http://www.springframework.org/schema/context/spring-context-3.0.xsd">
 	<context:component-scan base-package="com.storehouse.business.services.impl" />
 	<context:component-scan base-package="com.storehouse.business.utils" />
 	<bean id="ftpClient" class="org.apache.commons.net.ftp.FTPClient" />
+		<bean id="parserFactory" class="javax.xml.parsers.SAXParserFactory"
+		factory-method="newInstance" />
+	<bean id="parser" class="javax.xml.parsers.SAXParser"
+		factory-bean="parserFactory" factory-method="newSAXParser" />
+	<bean
+		class="org.springframework.aop.aspectj.annotation.AnnotationAwareAspectJAutoProxyCreator"></bean>
 </beans>

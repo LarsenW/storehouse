@@ -1,4 +1,4 @@
-package com.storehouse.web.utils;
+package com.storehouse.business.utils;
 
 import org.aspectj.lang.JoinPoint;
 import org.aspectj.lang.annotation.Aspect;

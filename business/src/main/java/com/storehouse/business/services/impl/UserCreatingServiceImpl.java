@@ -15,18 +15,22 @@ import com.storehouse.common.mapper.UserMapper;
 public class UserCreatingServiceImpl implements UserCreatingService {
 	@Autowired
 	UserService userService;
-	
+
 	@Autowired
 	FTPClient ftpClient;
-	
+
 	@Override
-	public void createUser(UserDto userDto) {
+	public boolean createUser(UserDto userDto) {
 		try {
 			ftpClient.makeDirectory(userDto.getUsername());
+			UserMapper userMapper = new UserMapper();
+			userService.persistUser(userMapper.dtoToEntity(userDto));
+			return true;
+
 		} catch (IOException e) {
 			e.printStackTrace();
+			System.out.println("User`s folder is not created, cannot establish connection with remote server");	
 		}
-		UserMapper userMapper = new UserMapper();
-		userService.persistUser(userMapper.dtoToEntity(userDto));
+		return false;
 	}
 }

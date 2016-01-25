@@ -22,7 +22,6 @@ public class RegistrationController {
 	@Autowired
 	UserCreatingService userCreatingService;
 
-
 	@RequestMapping(value = { "/registration" }, method = RequestMethod.GET)
 	public String showUserAddForm(Model model) {
 		model.addAttribute("userForm", new UserDto());
@@ -33,9 +32,10 @@ public class RegistrationController {
 	public String handleUserForm(@Valid @ModelAttribute("userForm") UserDto userDto, BindingResult result) {
 		if (result.hasErrors()) {
 			return "registration";
-		} else {
-			userCreatingService.createUser(userDto);
+		} else if (userCreatingService.createUser(userDto)) {
 			return "login";
+		} else {
+			return "registration";
 		}
 
 	}
