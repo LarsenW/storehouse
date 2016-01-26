@@ -28,6 +28,9 @@
 							<input type="password" name="password" id="password"
 								class="form-control input-md" placeholder="Password">
 						</div>
+						<c:if test="${not empty error}">
+							<div class="error">${error}</div>
+						</c:if>
 						<span class="button-checkbox">
 							<button type="button" class="btn btn-sm" data-color="info">Remember
 								Me</button> <input type="checkbox" name="remember_me" id="remember_me"

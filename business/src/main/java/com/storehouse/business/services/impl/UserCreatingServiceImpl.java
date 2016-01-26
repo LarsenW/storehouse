@@ -29,8 +29,12 @@ public class UserCreatingServiceImpl implements UserCreatingService {
 
 		} catch (IOException e) {
 			e.printStackTrace();
-			System.out.println("User`s folder is not created, cannot establish connection with remote server");	
+			System.out.println("User`s folder is not created, cannot establish connection with remote server");
 		}
 		return false;
+	}
+
+	public void checkIfUsernameAndEmailExist() {
+		
 	}
 }

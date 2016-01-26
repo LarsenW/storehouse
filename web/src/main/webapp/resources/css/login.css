@@ -21,6 +21,17 @@
 		50%, #db9dbe 62.5%, #c49cde 62.5%, #c49cde 75%, #669ae1 75%, #669ae1
 		87.5%, #62c2e4 87.5%, #62c2e4);
 }
-.container{
+
+.container {
 	width: 60%;
+}
+
+.error {
+	padding: 15px;
+	margin-bottom: 20px;
+	border: 1px solid transparent;
+	border-radius: 4px;
+	color: #a94442;
+	background-color: #f2dede;
+	border-color: #ebccd1;
 }
