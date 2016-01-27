@@ -1,6 +1,7 @@
 package com.storehouse.business.utils;
 
 import org.aspectj.lang.JoinPoint;
+import org.aspectj.lang.annotation.After;
 import org.aspectj.lang.annotation.Aspect;
 import org.aspectj.lang.annotation.Before;
 import org.aspectj.lang.annotation.Pointcut;
@@ -28,5 +29,14 @@ public class RemoteServerConnectionEstablisher {
 			}
 		}
 
+	}
+
+	@After("pointcut()")
+	public void disconnect(JoinPoint jp) {
+		if (connectionEstablished) {
+			if (serverConnector.disconnect()) {
+				connectionEstablished = false;
+			}
+		}
 	}
 }

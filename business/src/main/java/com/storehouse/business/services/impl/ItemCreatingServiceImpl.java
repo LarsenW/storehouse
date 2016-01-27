@@ -1,7 +1,10 @@
 package com.storehouse.business.services.impl;
 
-import org.springframework.beans.factory.annotation.Autowired;
+import java.io.IOException;
+import java.io.InputStream;
 
+import org.apache.commons.net.ftp.FTPClient;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.storehouse.business.services.ItemCreatingService;
@@ -16,10 +19,18 @@ public class ItemCreatingServiceImpl implements ItemCreatingService {
 	@Autowired
 	ItemService itemService;
 
-	public void createItem(ItemDto itemDto) {
+	@Autowired
+	FTPClient ftpClient;
+
+	public void createItem(ItemDto itemDto, InputStream inputStream) {
 		ItemMapper itemMapper = new ItemMapper();
 		Item item = itemMapper.dtoToEntity(itemDto);
 		itemService.persistItem(item);
+		try {
+			ftpClient.storeFile(item.getName(), inputStream);
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
 	}
 
 }

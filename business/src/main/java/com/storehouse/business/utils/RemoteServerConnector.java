@@ -56,4 +56,18 @@ public class RemoteServerConnector {
 		}
 		return false;
 	}
+
+	public boolean disconnect() {
+		if (ftpClient.isConnected()) {
+			try {
+				ftpClient.logout();
+				ftpClient.disconnect();
+				return true;
+			} catch (IOException e) {
+
+				e.printStackTrace();
+			}
+		}
+		return false;
+	}
 }

@@ -1,5 +1,6 @@
 package com.storehouse.web.controllers;
 
+import java.io.IOException;
 import java.util.Calendar;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -35,7 +36,14 @@ public class ItemUploadController {
 		Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
 		User user = (User) authentication.getPrincipal();
 		itemDto.setUser(user);
-		itemCreatingService.createItem(itemDto);
+		try {
+			itemCreatingService.createItem(itemDto,file.getInputStream());
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		System.out.println(file.getSize());
+		
 		return "profile";
 	}
 
