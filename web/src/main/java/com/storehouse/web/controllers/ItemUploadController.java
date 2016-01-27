@@ -37,13 +37,10 @@ public class ItemUploadController {
 		User user = (User) authentication.getPrincipal();
 		itemDto.setUser(user);
 		try {
-			itemCreatingService.createItem(itemDto,file.getInputStream());
+			itemCreatingService.createItem(itemDto, file.getInputStream(), user.getName());
 		} catch (IOException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		System.out.println(file.getSize());
-		
 		return "profile";
 	}
 

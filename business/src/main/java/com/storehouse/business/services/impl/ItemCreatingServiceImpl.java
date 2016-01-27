@@ -22,12 +22,14 @@ public class ItemCreatingServiceImpl implements ItemCreatingService {
 	@Autowired
 	FTPClient ftpClient;
 
-	public void createItem(ItemDto itemDto, InputStream inputStream) {
-		ItemMapper itemMapper = new ItemMapper();
-		Item item = itemMapper.dtoToEntity(itemDto);
-		itemService.persistItem(item);
+	public void createItem(ItemDto itemDto, InputStream inputStream, String username) {
 		try {
-			ftpClient.storeFile(item.getName(), inputStream);
+			ftpClient.changeWorkingDirectory(username + "/");
+			ftpClient.storeFile(itemDto.getName(), inputStream);
+			ItemMapper itemMapper = new ItemMapper();
+			Item item = itemMapper.dtoToEntity(itemDto);
+			item.setLink(username + "/" + item.getName());
+			itemService.persistItem(item);
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
