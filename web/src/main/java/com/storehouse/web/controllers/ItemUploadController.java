@@ -35,6 +35,7 @@ public class ItemUploadController {
 		Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
 		User user = (User) authentication.getPrincipal();
 		itemDto.setUser(user);
+		itemCreatingService.createItem(itemDto);
 		return "profile";
 	}
 

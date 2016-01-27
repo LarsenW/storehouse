@@ -11,11 +11,12 @@ import org.springframework.stereotype.Component;
 @Aspect
 public class RemoteServerConnectionEstablisher {
 	private static boolean connectionEstablished = false;
-	
+
 	@Autowired
 	private RemoteServerConnector serverConnector;
 
-	@Pointcut("execution(* com.storehouse.business.services.impl.UserCreatingServiceImpl.createUser(..))")
+	@Pointcut("execution(* com.storehouse.business.services.impl.UserCreatingServiceImpl.createUser(..)) ||"
+			+ " execution (* com.storehouse.business.services.impl.ItemCreatingServiceImpl.createItem(..))")
 	public void pointcut() {
 	}
 
