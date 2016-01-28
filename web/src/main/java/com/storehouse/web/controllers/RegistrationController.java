@@ -1,10 +1,7 @@
 package com.storehouse.web.controllers;
 
-import java.io.IOException;
-
 import javax.validation.Valid;
 
-import org.apache.commons.net.ftp.FTPClient;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -15,7 +12,6 @@ import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.storehouse.business.services.UserCreatingService;
 import com.storehouse.common.dto.UserDto;
-import com.storehouse.common.entity.User;
 
 @Controller
 public class RegistrationController {
