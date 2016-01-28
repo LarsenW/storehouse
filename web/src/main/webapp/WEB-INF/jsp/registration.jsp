@@ -49,7 +49,8 @@
 							<div class="form-group">
 								<input type="password" name="password_confirmation"
 									id="password_confirmation" class="form-control input-md"
-									placeholder="Confirm Password" tabindex="6">
+									placeholder="Confirm Password" tabindex="6"> <br>
+								<div id="password_confirm_error" class="error">Passwords are not equal</div>
 							</div>
 						</div>
 					</div>

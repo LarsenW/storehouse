@@ -28,16 +28,14 @@
 	<nav class="navbar navbar-inverse">
 		<div class="container-fluid">
 			<div class="navbar-header">
-				<a class="navbar-brand" href="main">WebSiteName</a>
+				<a class="navbar-brand" href="main">Storehouse</a>
 			</div>
 			<div>
 				<ul class="nav navbar-nav">
-					<li class="active"><a href="main">Home</a></li>
+					<li><a href="main"class="glyphicon glyphicon-home"></a></li>
 					<sec:authorize access="hasRole('ROLE_USER')">
 						<li><a href="upload">Upload</a></li>
 					</sec:authorize>
-					<li><a href="#">Page 2</a></li>
-					<li><a href="#">Page 3</a></li>
 				</ul>
 				<ul class="nav navbar-nav navbar-right">
 					<sec:authorize access="isAnonymous()">

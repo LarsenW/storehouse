@@ -30,3 +30,6 @@
 	background-color: #f2dede;
 	border-color: #ebccd1;
 }
+#password_confirm_error{
+	display: none;
+}
