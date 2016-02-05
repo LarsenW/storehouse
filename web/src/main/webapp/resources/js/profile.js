@@ -77,6 +77,7 @@ function drawButtons() {
 
 }
 function format(d) {
+	console.log();
 	return '<table id="subtable" cellpadding="5" cellspacing="0" border="0" style="padding-left:50px;">'
 			+ '<tr>'
 			+ '<td>Full name:</td>'
@@ -91,6 +92,9 @@ function format(d) {
 			+ '</td>'
 			+ '</tr>'
 			+ '<tr>'
-			+ '<td><a href="http://localhost:8080/filehandler/">Download <a/><span class="glyphicon glyphicon-download"></span></td>'
+			+ '<td><a href="'+location.pathname+'/download/'
+			+ d.id
+			+ '"'
+			+ 'target="_blank">Download <a/><span class="glyphicon glyphicon-download"></span></td>'
 			+ '</tr>' + '</table>';
 }

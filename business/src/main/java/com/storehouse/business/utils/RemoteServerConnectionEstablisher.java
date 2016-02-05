@@ -17,7 +17,8 @@ public class RemoteServerConnectionEstablisher {
 	private RemoteServerConnector serverConnector;
 
 	@Pointcut("execution(* com.storehouse.business.services.impl.UserCreatingServiceImpl.createUser(..)) ||"
-			+ " execution (* com.storehouse.business.services.impl.ItemCreatingServiceImpl.createItem(..))")
+			+ " execution (* com.storehouse.business.services.impl.ItemCreatingServiceImpl.createItem(..)) ||"
+			+ "execution (* com.storehouse.business.services.impl.FileDownloadingServiceImpl.downloadFile(..))")
 	public void pointcut() {
 	}
 
