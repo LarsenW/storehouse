@@ -95,6 +95,6 @@ function format(d) {
 			+ '<td><a href="'+location.pathname+'/download/'
 			+ d.id
 			+ '"'
-			+ 'target="_blank">Download <a/><span class="glyphicon glyphicon-download"></span></td>'
+			+ '>Download <a/><span class="glyphicon glyphicon-download"></span></td>'
 			+ '</tr>' + '</table>';
 }
