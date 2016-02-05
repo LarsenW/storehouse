@@ -41,7 +41,7 @@ public class ItemUploadController {
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
-		return "profile";
+		return "redirect:/profile";
 	}
 
 }
