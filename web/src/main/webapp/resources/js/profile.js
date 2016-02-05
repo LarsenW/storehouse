@@ -25,6 +25,9 @@ $(document).ready(function() {
 		}
 	});
 });
+function convertData() {
+	return "assaas";
+}
 function drawPublic() {
 	if (table != undefined) {
 		table.destroy();
@@ -47,37 +50,55 @@ function drawPublic() {
 			"orderable" : false,
 			"data" : null,
 			"defaultContent" : ''
-		} ]
+		} ],
+		 "columnDefs": [{
+	            "targets": 2,
+	            "data": "createdDate",
+	            "render": function (data, type, full, meta) {
+	                var date = new Date(data);
+	                return date.getDate() + '/' +
+	                    (date.getMonth() + 1) + '/' + date.getFullYear();
+	            }
+	        }]
 	});
 }
 function drawPrivate() {
 	if (table != undefined) {
 		table.destroy();
 	}
-	table = $('#result_table').DataTable({
-		"ajax" : {
-			"url" : "getprivatefiles",
-			"dataSrc" : ""
-		},
-		"columns" : [ {
-			"data" : "name"
-		}, {
-			"data" : "fileCategory"
-		}, {
-			"data" : "created"
-		}, {
-			"className" : 'details-control',
-			"orderable" : false,
-			"data" : null,
-			"defaultContent" : ''
-		} ],
-	});
+	table = $('#result_table').DataTable(
+			{
+				"ajax" : {
+					"url" : "getprivatefiles",
+					"dataSrc" : ""
+				},
+				"columns" : [ {
+					"data" : "name"
+				}, {
+					"data" : "fileCategory"
+				}, {
+					"data" : "created"
+				}, {
+					"className" : 'details-control',
+					"orderable" : false,
+					"data" : null,
+					"defaultContent" : ''
+				} ],
+				"columnDefs" : [ {
+					"targets" : 2,
+					"data" : "createdDate",
+					"render" : function(data, type, full, meta) {
+						var date = new Date(data);
+						return date.getDate() + '/' + (date.getMonth() + 1)
+								+ '/' + date.getFullYear();
+					}
+				} ]
+			});
 }
 function drawButtons() {
 
 }
 function format(d) {
-	console.log();
 	return '<table id="subtable" cellpadding="5" cellspacing="0" border="0" style="padding-left:50px;">'
 			+ '<tr>'
 			+ '<td>Full name:</td>'
@@ -92,7 +113,9 @@ function format(d) {
 			+ '</td>'
 			+ '</tr>'
 			+ '<tr>'
-			+ '<td><a href="'+location.pathname+'/download/'
+			+ '<td><a href="'
+			+ location.pathname
+			+ '/download/'
 			+ d.id
 			+ '"'
 			+ '>Download <a/><span class="glyphicon glyphicon-download"></span></td>'
