@@ -24,12 +24,6 @@ public class ItemUploadController {
 	@Autowired
 	ItemCreatingService itemCreatingService;
 
-	@RequestMapping(value = { "/upload" }, method = RequestMethod.GET)
-	public String showUploadForm(Model model) {
-		model.addAttribute("itemForm", new ItemDto());
-		return "upload";
-	}
-
 	@RequestMapping(value = "/upload", method = RequestMethod.POST)
 	public String handleFileUpload(@ModelAttribute("itemForm") ItemDto itemDto,
 			@RequestParam("file") MultipartFile file) {

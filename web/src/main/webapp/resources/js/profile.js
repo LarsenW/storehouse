@@ -7,6 +7,9 @@ $(document).ready(function() {
 	$("#private").click(function() {
 		drawPrivate();
 	});
+	$("#upload").click(function() {
+		drawUpload();
+	});
 	$("li").click(function() {
 		$('.active').removeClass('active');
 		$(this).addClass('active');
@@ -24,45 +27,48 @@ $(document).ready(function() {
 			tr.addClass('info');
 		}
 	});
+	$('.btn-file :file').on('fileselect', function(event, numFiles, label) {
+		$("#file_upload").val(label);
+	});
 });
-function convertData() {
-	return "assaas";
-}
 function drawPublic() {
+	$("#upload_form_wrapper").hide();
 	if (table != undefined) {
 		table.destroy();
 	}
-	table = $('#result_table').DataTable({
-		retrieve : true,
-		"ajax" : {
+	table = $('#result_table').DataTable(
+			{
+				retrieve : true,
+				"ajax" : {
 
-			"url" : "getpublicfiles",
-			"dataSrc" : ""
-		},
-		"columns" : [ {
-			"data" : "name"
-		}, {
-			"data" : "fileCategory"
-		}, {
-			"data" : "created"
-		}, {
-			"className" : 'details-control',
-			"orderable" : false,
-			"data" : null,
-			"defaultContent" : ''
-		} ],
-		 "columnDefs": [{
-	            "targets": 2,
-	            "data": "createdDate",
-	            "render": function (data, type, full, meta) {
-	                var date = new Date(data);
-	                return date.getDate() + '/' +
-	                    (date.getMonth() + 1) + '/' + date.getFullYear();
-	            }
-	        }]
-	});
+					"url" : "getpublicfiles",
+					"dataSrc" : ""
+				},
+				"columns" : [ {
+					"data" : "name"
+				}, {
+					"data" : "fileCategory"
+				}, {
+					"data" : "created"
+				}, {
+					"className" : 'details-control',
+					"orderable" : false,
+					"data" : null,
+					"defaultContent" : ''
+				} ],
+				"columnDefs" : [ {
+					"targets" : 2,
+					"data" : "createdDate",
+					"render" : function(data, type, full, meta) {
+						var date = new Date(data);
+						return date.getDate() + '/' + (date.getMonth() + 1)
+								+ '/' + date.getFullYear();
+					}
+				} ]
+			});
 }
 function drawPrivate() {
+	$("#upload_form_wrapper").hide();
 	if (table != undefined) {
 		table.destroy();
 	}
@@ -95,9 +101,6 @@ function drawPrivate() {
 				} ]
 			});
 }
-function drawButtons() {
-
-}
 function format(d) {
 	return '<table id="subtable" cellpadding="5" cellspacing="0" border="0" style="padding-left:50px;">'
 			+ '<tr>'
@@ -121,3 +124,17 @@ function format(d) {
 			+ '>Download <a/><span class="glyphicon glyphicon-download"></span></td>'
 			+ '</tr>' + '</table>';
 }
+function drawUpload() {
+	$("#result_table_wrapper").hide();
+	$("#upload_form_wrapper").show();
+}
+$(document)
+		.on(
+				'change',
+				'.btn-file :file',
+				function() {
+					var input = $(this), numFiles = input.get(0).files ? input
+							.get(0).files.length : 1, label = input.val()
+							.replace(/\\/g, '/').replace(/.*\//, '');
+					input.trigger('fileselect', [ numFiles, label ]);
+				});

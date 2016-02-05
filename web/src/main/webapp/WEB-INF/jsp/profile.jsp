@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 <%@ include file="base.jsp"%>
 <!DOCTYPE html>
 <html>
@@ -42,7 +43,7 @@
 							<li><a href="#" onclick="return false;"> <i
 									class="glyphicon glyphicon-user"></i> Account Settings
 							</a></li>
-							<li><a href="upload"> <i
+							<li id="upload"><a href="#" onclick="return false;"> <i
 									class="glyphicon glyphicon glyphicon-upload"></i> Upload file
 							</a></li>
 						</ul>
@@ -51,8 +52,7 @@
 			</div>
 			<div class="col-md-9">
 				<div class="profile-content">
-					<table class="table table-bordered" cellspacing="0"
-						width="100%" id="result_table">
+					<table class="table table-bordered" id="result_table">
 						<thead>
 							<tr>
 								<th>Title</th>
@@ -72,6 +72,49 @@
 						<tbody>
 						</tbody>
 					</table>
+					<div id="upload_form_wrapper" class="panel panel-default" style="display: none;">
+						<div class="panel-heading">
+							<h3 class="panel-title glyphicon glyphicon-upload">Upload
+								new file</h3>
+						</div>
+						<div class="panel-body">
+							<form:form method="POST" modelAttribute="itemForm"
+								action="upload" enctype="multipart/form-data">
+								<div class="form-group">
+									<form:input type="text" name="name" id="name" path="name"
+										class="form-control input-sm glowing-border"
+										placeholder="Name" />
+								</div>
+								<div>
+									<form:textarea class="form-control" rows="3" id="comment"
+										path="description" placeholder="File description..." />
+								</div>
+								<br>
+								<br>
+								<table>
+									<tr>
+										<td><form:radiobutton path="privacy" value="false" />Public</td>
+										<td><form:radiobutton path="privacy" value="true" />Private</td>
+									</tr>
+								</table>
+								<br>
+								<br>
+								<div class="input-group">
+									<span class="input-group-btn"> <span
+										class="btn btn-info btn-file"> Browse… <input
+											type="file" name="file">
+									</span>
+									</span> <input id="file_upload" type="text" class="form-control"
+										placeholder="file is not chosen" readonly="readonly">
+								</div>
+								<br>
+								<div id="upload_button">
+									<input type="submit" value="Upload"
+										class="btn btn-primary btn-block">
+								</div>
+							</form:form>
+						</div>
+					</div>
 				</div>
 			</div>
 

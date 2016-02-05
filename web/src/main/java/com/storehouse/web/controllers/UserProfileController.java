@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.storehouse.business.services.UserService;
+import com.storehouse.common.dto.ItemDto;
 import com.storehouse.common.entity.User;
 
 @Controller
@@ -33,6 +34,7 @@ public class UserProfileController {
 		User user = (User) authentication.getPrincipal();
 		model.addAttribute("name", user.getName());
 		model.addAttribute("email", user.getEmail());
+		model.addAttribute("itemForm", new ItemDto());
 		return "profile";
 	}
 
