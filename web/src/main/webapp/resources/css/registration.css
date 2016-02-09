@@ -21,7 +21,8 @@
 		50%, #db9dbe 62.5%, #c49cde 62.5%, #c49cde 75%, #669ae1 75%, #669ae1
 		87.5%, #62c2e4 87.5%, #62c2e4);
 }
-.error{
+
+.error {
 	padding: 5px;
 	margin-bottom: 5px;
 	border: 1px solid transparent;
@@ -30,6 +31,11 @@
 	background-color: #f2dede;
 	border-color: #ebccd1;
 }
-#password_confirm_error{
+
+#password_confirm_error {
+	display: none;
+}
+
+#password_confirm_empty {
 	display: none;
 }

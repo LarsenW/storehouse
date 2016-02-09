@@ -8,6 +8,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
 <link rel="stylesheet" href="${basedir}/resources/css/registration.css">
+<script src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.9/jquery.validate.min.js"></script>
 <script src="${basedir}/resources/js/registration.js"></script>
 </head>
 <body>
@@ -15,7 +16,7 @@
 		<div class="row">
 			<div
 				class="col-xs-12 col-sm-8 col-md-6 col-sm-offset-2 col-md-offset-3">
-				<form:form modelAttribute="userForm" action='registration'
+				<form:form id="user-form" modelAttribute="userForm" action='registration'
 					method="POST">
 					<h2>
 						Please Sign Up <small>It's free and always will be.</small>
@@ -51,13 +52,14 @@
 									id="password_confirmation" class="form-control input-md"
 									placeholder="Confirm Password" tabindex="6"> <br>
 								<div id="password_confirm_error" class="error">Passwords are not equal</div>
+								<div id="password_confirm_empty" class="error">Confirm the password</div>
 							</div>
 						</div>
 					</div>
 					<hr class="colorgraph">
 					<div class="row">
 						<div class="col-xs-12 col-md-6">
-							<input type="submit" value="Register"
+							<input id='register' type="submit" value="Register"
 								class="btn btn-primary btn-block btn-md" tabindex="7">
 						</div>
 						<div class="col-xs-12 col-md-6">
