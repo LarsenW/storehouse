@@ -122,34 +122,49 @@ td.details-control {
 tr.shown td.details-control {
 	background: url('../images/details_close.png') no-repeat center center;
 }
-tr.even{
+
+tr.even {
 	background-color: white;
 }
-tr.odd{
-	background-color: #F0F0F0 ;
+
+tr.odd {
+	background-color: #F0F0F0;
 }
-tbody{
-	background-color: #FFFFFF ;
+
+tbody {
+	background-color: #FFFFFF;
 }
+
 .btn-file {
-    position: relative;
-    overflow: hidden;
+	position: relative;
+	overflow: hidden;
 }
+
 .btn-file input[type=file] {
-    position: absolute;
-    top: 0;
-    right: 0;
-    min-width: 100%;
-    min-height: 100%;
-    font-size: 100px;
-    text-align: right;
-    filter: alpha(opacity=0);
-    opacity: 0;
-    outline: none;
-    background: white;
-    cursor: inherit;
-    display: block;
+	position: absolute;
+	top: 0;
+	right: 0;
+	min-width: 100%;
+	min-height: 100%;
+	font-size: 100px;
+	text-align: right;
+	filter: alpha(opacity = 0);
+	opacity: 0;
+	outline: none;
+	background: white;
+	cursor: inherit;
+	display: block;
 }
-#upload_button{
+
+#upload_button {
 	width: 30%;
+}
+
+#account_settings_form_wrapper {
+	width: 70%;
+	margin-left: 15%;
+	position: relative;
+}
+hr{
+
 }

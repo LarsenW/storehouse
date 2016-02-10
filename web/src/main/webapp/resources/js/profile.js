@@ -10,6 +10,9 @@ $(document).ready(function() {
 	$("#upload").click(function() {
 		drawUpload();
 	});
+	$("#account_settings").click(function() {
+		drawAccountSettings();
+	});
 	$("li").click(function() {
 		$('.active').removeClass('active');
 		$(this).addClass('active');
@@ -33,6 +36,7 @@ $(document).ready(function() {
 });
 function drawPublic() {
 	$("#upload_form_wrapper").hide();
+	$("#account_settings_form_wrapper").hide();
 	if (table != undefined) {
 		table.destroy();
 	}
@@ -69,6 +73,7 @@ function drawPublic() {
 }
 function drawPrivate() {
 	$("#upload_form_wrapper").hide();
+	$("#account_settings_form_wrapper").hide();
 	if (table != undefined) {
 		table.destroy();
 	}
@@ -126,6 +131,7 @@ function format(d) {
 }
 function drawUpload() {
 	$("#result_table_wrapper").hide();
+	$("#account_settings_form_wrapper").hide();
 	$("#upload_form_wrapper").show();
 }
 $(document)
@@ -138,3 +144,8 @@ $(document)
 							.replace(/\\/g, '/').replace(/.*\//, '');
 					input.trigger('fileselect', [ numFiles, label ]);
 				});
+function drawAccountSettings() {
+	$("#result_table_wrapper").hide();
+	$("#upload_form_wrapper").hide();
+	$("#account_settings_form_wrapper").show();
+}

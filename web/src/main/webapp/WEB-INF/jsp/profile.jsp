@@ -40,8 +40,9 @@
 							<li id="private"><a href="#" onclick="return false;"> <i
 									class="glyphicon glyphicon-lock"></i> Private files
 							</a></li>
-							<li><a href="#" onclick="return false;"> <i
-									class="glyphicon glyphicon-user"></i> Account Settings
+							<li id="account_settings"><a href="#"
+								onclick="return false;"> <i class="glyphicon glyphicon-user"></i>
+									Account Settings
 							</a></li>
 							<li id="upload"><a href="#" onclick="return false;"> <i
 									class="glyphicon glyphicon glyphicon-upload"></i> Upload file
@@ -72,7 +73,8 @@
 						<tbody>
 						</tbody>
 					</table>
-					<div id="upload_form_wrapper" class="panel panel-default" style="display: none;">
+					<div id="upload_form_wrapper" class="panel panel-default"
+						style="display: none;">
 						<div class="panel-heading">
 							<h3 class="panel-title glyphicon glyphicon-upload">Upload
 								new file</h3>
@@ -115,9 +117,63 @@
 							</form:form>
 						</div>
 					</div>
+					<div id="account_settings_form_wrapper" class="box box-primary"
+						style="display: none;">
+						<div class="box-header">
+							<h3 class="box-title" style="text-align: center;">Account
+								settings</h3>
+						</div>
+						<div class="box-body">
+							<hr>
+							<form>
+								<div class="form-group">
+									<label for="new_email">New email</label> <input type="email"
+										class="form-control" id="new_email" placeholder="Enter email">
+								</div>
+								<div class="box-footer">
+									<button type="submit" class="btn btn-primary">Save</button>
+								</div>
+							</form>
+							<hr>
+							<form action="">
+								<div class="form-group">
+									<label for="old_password">Old password</label> <input
+										type="password" class="form-control" id="old_password"
+										placeholder="Password">
+								</div>
+								<div class="form-group">
+									<label for="new_password">New password</label> <input
+										type="password" class="form-control" id="new_password"
+										placeholder="Password">
+								</div>
+								<div class="form-group">
+									<label for="confirm_password">Confirm password</label> <input
+										type="password" class="form-control" id="confirm_password"
+										placeholder="Password">
+								</div>
+								<div class="box-footer">
+									<button type="submit" class="btn btn-primary">Save</button>
+								</div>
+							</form>
+						</div>
+						<hr>
+						<form>
+							<div class="input-group">
+								<span class="input-group-btn"> <span
+									class="btn btn-info btn-file"> Browse… <input
+										type="file" name="file">
+								</span>
+								</span> <input id="avatar_upload" type="text" class="form-control"
+									placeholder="file is not chosen" readonly="readonly">
+							</div>
+							<br>
+							<div class="box-footer">
+								<button type="submit" class="btn btn-primary">Save</button>
+							</div>
+						</form>
+					</div>
 				</div>
 			</div>
-
 		</div>
 	</div>
 </body>
