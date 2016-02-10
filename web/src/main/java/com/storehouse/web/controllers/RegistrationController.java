@@ -30,16 +30,15 @@ public class RegistrationController {
 			ModelMap model) {
 		boolean usernameExist = userCreatingService.checkIfUsernameExist(userDto.getUsername());
 		boolean emailExist = userCreatingService.checkIfEmailExist(userDto.getEmail());
-		if (emailExist || usernameExist) {
+		if (result.hasErrors()) {
+			return "registration";
+		} else if (emailExist || usernameExist) {
 			if (usernameExist) {
 				model.addAttribute("usernameNonUnique", "Username is not unique");
 			}
 			if (emailExist) {
 				model.addAttribute("emailNonUnique", "Email is not unique");
 			}
-			return "registration";
-		}
-		if (result.hasErrors()) {
 			return "registration";
 		} else if (userCreatingService.createUser(userDto)) {
 			return "login";
