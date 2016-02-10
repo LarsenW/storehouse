@@ -1,7 +1,5 @@
 package com.storehouse.business.services.impl;
 
-import java.util.Arrays;
-import java.util.HashSet;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -53,8 +51,11 @@ public class UserServiceImpl implements UserService {
 	}
 
 	public UserDetails loadUserByUsername(String email) throws UsernameNotFoundException {
-		User user = userDao.getUserByEmail(email);
-		return user;
+		return userDao.getUserByEmail(email);
+	}
+
+	public User getByName(String name) {	
+		return userDao.getUserByName(name);
 	}
 
 }

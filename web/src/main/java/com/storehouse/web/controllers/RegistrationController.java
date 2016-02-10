@@ -5,6 +5,7 @@ import javax.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.ui.ModelMap;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -25,7 +26,16 @@ public class RegistrationController {
 	}
 
 	@RequestMapping(value = { "/registration" }, method = RequestMethod.POST)
-	public String handleUserForm(@Valid @ModelAttribute("userForm") UserDto userDto, BindingResult result) {
+	public String handleUserForm(@Valid @ModelAttribute("userForm") UserDto userDto, BindingResult result,
+			ModelMap model) {
+		if (userCreatingService.checkIfUsernameExist(userDto.getUsername())) {
+			model.addAttribute("usernameNonUnique", "Username is not unique");
+			return "registration";
+		}
+		if (userCreatingService.checkIfEmailExist(userDto.getEmail())) {
+			model.addAttribute("emailNonUnique", "Email is not unique");
+			return "registration";
+		}
 		if (result.hasErrors()) {
 			return "registration";
 		} else if (userCreatingService.createUser(userDto)) {

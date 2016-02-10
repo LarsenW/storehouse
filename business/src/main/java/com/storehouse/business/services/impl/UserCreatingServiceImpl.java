@@ -4,6 +4,7 @@ import java.io.IOException;
 
 import org.apache.commons.net.ftp.FTPClient;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 
 import com.storehouse.business.services.UserCreatingService;
@@ -34,7 +35,21 @@ public class UserCreatingServiceImpl implements UserCreatingService {
 		return false;
 	}
 
-	public void checkIfUsernameAndEmailExist() {
-		
+	public boolean checkIfEmailExist(String email) {
+		try {
+			userService.loadUserByUsername(email);
+			return true;
+		} catch (UsernameNotFoundException e) {
+			return false;
+		}
+	}
+
+	public boolean checkIfUsernameExist(String username) {
+		if (userService.getByName(username)!=null) {
+			return true;
+		} else {
+			return false;
+		}
+
 	}
 }
