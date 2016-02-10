@@ -28,12 +28,15 @@ public class RegistrationController {
 	@RequestMapping(value = { "/registration" }, method = RequestMethod.POST)
 	public String handleUserForm(@Valid @ModelAttribute("userForm") UserDto userDto, BindingResult result,
 			ModelMap model) {
-		if (userCreatingService.checkIfUsernameExist(userDto.getUsername())) {
-			model.addAttribute("usernameNonUnique", "Username is not unique");
-			return "registration";
-		}
-		if (userCreatingService.checkIfEmailExist(userDto.getEmail())) {
-			model.addAttribute("emailNonUnique", "Email is not unique");
+		boolean usernameExist = userCreatingService.checkIfUsernameExist(userDto.getUsername());
+		boolean emailExist = userCreatingService.checkIfEmailExist(userDto.getEmail());
+		if (emailExist || usernameExist) {
+			if (usernameExist) {
+				model.addAttribute("usernameNonUnique", "Username is not unique");
+			}
+			if (emailExist) {
+				model.addAttribute("emailNonUnique", "Email is not unique");
+			}
 			return "registration";
 		}
 		if (result.hasErrors()) {
