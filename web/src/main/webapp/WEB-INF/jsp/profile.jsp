@@ -8,7 +8,6 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
 <link rel="stylesheet" href="${basedir}/resources/css/profile.css">
-<!-- <link rel="stylesheet" href="https://cdn.datatables.net/1.10.10/css/jquery.dataTables.min.css"> -->
 <script src="${basedir}/resources/js/profile.js"></script>
 <script
 	src="https://cdn.datatables.net/1.10.10/js/jquery.dataTables.min.js"></script>
@@ -29,7 +28,7 @@
 					</div>
 					<div class="profile-usertitle">
 						<div class="profile-usertitle-name">${name}</div>
-						<div class="profile-usertitle-email">${email}</div>
+						<div id="email_info" class="profile-usertitle-email">${email}</div>
 					</div>
 					<div class="profile-usermenu">
 						<ul class="nav">
@@ -125,7 +124,7 @@
 						</div>
 						<div class="box-body">
 							<hr>
-							<form>
+							<form id="new_email_form">
 								<div class="form-group">
 									<label for="new_email">New email</label> <input type="email"
 										class="form-control" id="new_email" placeholder="Enter email">

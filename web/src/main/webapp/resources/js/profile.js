@@ -33,6 +33,28 @@ $(document).ready(function() {
 	$('.btn-file :file').on('fileselect', function(event, numFiles, label) {
 		$("#file_upload").val(label);
 	});
+	$('#new_email_form').submit(function(event) {
+		$.ajax({
+			type : "GET",
+			url : "account/email",
+			data : {
+				email : $("#new_email").val()
+			},
+			success : function(data) {
+				if (data == true) {
+					$("#email_info").text($("#new_email").val());
+				} else {
+					
+				}
+
+			},
+			error : function(data) {
+				alert('The service is currently unavailable. Please try again later.');
+			}
+		});
+		return false;
+	});
+
 });
 function drawPublic() {
 	$("#upload_form_wrapper").hide();
