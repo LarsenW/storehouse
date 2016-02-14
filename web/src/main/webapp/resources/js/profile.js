@@ -1,61 +1,101 @@
 var table;
-$(document).ready(function() {
-	drawPublic();
-	$("#public").click(function() {
-		drawPublic();
-	});
-	$("#private").click(function() {
-		drawPrivate();
-	});
-	$("#upload").click(function() {
-		drawUpload();
-	});
-	$("#account_settings").click(function() {
-		drawAccountSettings();
-	});
-	$("li").click(function() {
-		$('.active').removeClass('active');
-		$(this).addClass('active');
-	});
-	$('#result_table tbody').on('click', 'td.details-control', function() {
-		var tr = $(this).closest('tr');
-		var row = table.row(tr);
-		if (row.child.isShown()) {
-			row.child.hide();
-			tr.removeClass('shown');
-			tr.removeClass('info');
-		} else {
-			row.child(format(row.data())).show();
-			tr.addClass('shown');
-			tr.addClass('info');
-		}
-	});
-	$('.btn-file :file').on('fileselect', function(event, numFiles, label) {
-		$("#file_upload").val(label);
-	});
-	$('#new_email_form').submit(function(event) {
-		$.ajax({
-			type : "GET",
-			url : "account/email",
-			data : {
-				email : $("#new_email").val()
-			},
-			success : function(data) {
-				if (data == true) {
-					$("#email_info").text($("#new_email").val());
-				} else {
-					
-				}
+$(document)
+		.ready(
+				function() {
+					drawPublic();
+					$("#public").click(function() {
+						drawPublic();
+					});
+					$("#private").click(function() {
+						drawPrivate();
+					});
+					$("#upload").click(function() {
+						drawUpload();
+					});
+					$("#account_settings").click(function() {
+						drawAccountSettings();
+					});
+					$("li").click(function() {
+						$('.active').removeClass('active');
+						$(this).addClass('active');
+					});
+					$('#result_table tbody').on('click', 'td.details-control',
+							function() {
+								var tr = $(this).closest('tr');
+								var row = table.row(tr);
+								if (row.child.isShown()) {
+									row.child.hide();
+									tr.removeClass('shown');
+									tr.removeClass('info');
+								} else {
+									row.child(format(row.data())).show();
+									tr.addClass('shown');
+									tr.addClass('info');
+								}
+							});
+					$('.btn-file :file').on('fileselect',
+							function(event, numFiles, label) {
+								$("#file_upload").val(label);
+							});
+					$('#new_email_form')
+							.submit(
+									function(event) {
+										$
+												.ajax({
+													type : "GET",
+													url : "account/email",
+													data : {
+														email : $("#new_email")
+																.val()
+													},
+													success : function(data) {
+														if (data == true) {
+															$("#email_info")
+																	.text(
+																			$(
+																					"#new_email")
+																					.val());
+														} else {
 
-			},
-			error : function(data) {
-				alert('The service is currently unavailable. Please try again later.');
-			}
-		});
-		return false;
-	});
+														}
 
-});
+													},
+													error : function(data) {
+														alert('The service is currently unavailable. Please try again later.');
+													}
+												});
+										return false;
+									});
+					$('#new_password_form')
+							.submit(
+									function(event) {
+										$
+												.ajax({
+													type : "GET",
+													url : "account/password",
+													data : {
+														old_password : $(
+																"#old_password")
+																.val(),
+														new_password : $(
+																"#new_password")
+																.val()
+													},
+													success : function(data) {
+														if (data == true) {
+															alert(data);
+														} else {
+															alert(data);
+														}
+
+													},
+													error : function(data) {
+														alert('The service is currently unavailable. Please try again later.');
+													}
+												});
+										return false;
+									});
+				});
 function drawPublic() {
 	$("#upload_form_wrapper").hide();
 	$("#account_settings_form_wrapper").hide();

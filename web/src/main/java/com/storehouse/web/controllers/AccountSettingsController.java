@@ -27,13 +27,26 @@ public class AccountSettingsController {
 	private AccountUpdatingService accountUpdatingService;
 
 	@RequestMapping(value = { "/email" }, method = RequestMethod.GET)
-	public @ResponseBody boolean showMainPage(HttpServletRequest req) {
+	public @ResponseBody boolean changeEmail(HttpServletRequest req) {
 		Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
 		User user = (User) authentication.getPrincipal();
 		String newEmail = req.getParameter("email");
 		Pattern pattern = Pattern.compile(emailPattern);
 		Matcher matcher = pattern.matcher(newEmail);
 		if (matcher.matches() && accountUpdatingService.updateEmail(user, newEmail)) {
+			return true;
+		} else {
+			return false;
+		}
+	}
+
+	@RequestMapping(value = { "/password" }, method = RequestMethod.GET)
+	public @ResponseBody boolean changePassword(HttpServletRequest req) {
+		Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+		User user = (User) authentication.getPrincipal();
+		String oldPassword = req.getParameter("old_password");
+		String newPassword = req.getParameter("new_password");
+		if (accountUpdatingService.updatePassword(user, newPassword, oldPassword)) {
 			return true;
 		} else {
 			return false;

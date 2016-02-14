@@ -1,8 +1,9 @@
-.navbar{
+.navbar {
 	margin-bottom: 0px;
 }
+
 body {
-	background-image: url("../images/background.jpg");
+	background-color: #DCDCDC;
 	background-repeat: no-repeat;
 	background-size: 100%;
 }

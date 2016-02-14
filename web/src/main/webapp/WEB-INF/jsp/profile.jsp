@@ -132,7 +132,7 @@
 								</div>
 							</form>
 							<hr>
-							<form action="">
+							<form id="new_password_form">
 								<div class="form-group">
 									<label for="old_password">Old password</label> <input
 										type="password" class="form-control" id="old_password"
