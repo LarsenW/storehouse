@@ -10,13 +10,11 @@
 <link rel="stylesheet" href="${basedir}/resources/css/profile.css">
 <script src="${basedir}/resources/js/profile.js"></script>
 <script
-	src="https://cdn.datatables.net/1.10.10/js/jquery.dataTables.min.js"></script>
+	src="${basedir}/resources/js/lib/jquery.dataTables.min.js"></script>
 <script
-	src="https://cdn.datatables.net/1.10.10/js/dataTables.bootstrap.min.js"></script>
+	src="${basedir}/resources/js/lib/dataTables.bootstrap.min.js"></script>
 <link rel="stylesheet"
-	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
-<link rel="stylesheet"
-	href="https://cdn.datatables.net/1.10.10/css/dataTables.bootstrap.min.css">
+	href="${basedir}/resources/css/lib/dataTables.bootstrap.min.css">
 <body>
 	<div class="container">
 		<div class="row profile custom_form shadow">
