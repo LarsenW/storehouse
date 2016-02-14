@@ -6,13 +6,14 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="_csrf" content="${_csrf.token}" />
+<!-- default header name is X-CSRF-TOKEN -->
+<meta name="_csrf_header" content="${_csrf.headerName}" />
 <title>Insert title here</title>
 <link rel="stylesheet" href="${basedir}/resources/css/profile.css">
 <script src="${basedir}/resources/js/profile.js"></script>
-<script
-	src="${basedir}/resources/js/lib/jquery.dataTables.min.js"></script>
-<script
-	src="${basedir}/resources/js/lib/dataTables.bootstrap.min.js"></script>
+<script src="${basedir}/resources/js/lib/jquery.dataTables.min.js"></script>
+<script src="${basedir}/resources/js/lib/dataTables.bootstrap.min.js"></script>
 <link rel="stylesheet"
 	href="${basedir}/resources/css/lib/dataTables.bootstrap.min.css">
 <body>

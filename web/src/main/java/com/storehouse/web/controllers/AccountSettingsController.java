@@ -26,7 +26,7 @@ public class AccountSettingsController {
 	@Autowired
 	private AccountUpdatingService accountUpdatingService;
 
-	@RequestMapping(value = { "/email" }, method = RequestMethod.GET)
+	@RequestMapping(value = { "/email" }, method = RequestMethod.POST)
 	public @ResponseBody boolean changeEmail(HttpServletRequest req) {
 		Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
 		User user = (User) authentication.getPrincipal();
@@ -40,7 +40,7 @@ public class AccountSettingsController {
 		}
 	}
 
-	@RequestMapping(value = { "/password" }, method = RequestMethod.GET)
+	@RequestMapping(value = { "/password" }, method = RequestMethod.POST)
 	public @ResponseBody boolean changePassword(HttpServletRequest req) {
 		Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
 		User user = (User) authentication.getPrincipal();

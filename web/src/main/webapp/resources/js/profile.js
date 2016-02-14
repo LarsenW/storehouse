@@ -42,7 +42,7 @@ $(document)
 									function(event) {
 										$
 												.ajax({
-													type : "GET",
+													type : "POST",
 													url : "account/email",
 													data : {
 														email : $("#new_email")
@@ -66,12 +66,20 @@ $(document)
 												});
 										return false;
 									});
+					$(function() {
+						var token = $("meta[name='_csrf']").attr("content");
+						var header = $("meta[name='_csrf_header']").attr(
+								"content");
+						$(document).ajaxSend(function(e, xhr, options) {
+							xhr.setRequestHeader(header, token);
+						});
+					});
 					$('#new_password_form')
 							.submit(
 									function(event) {
 										$
 												.ajax({
-													type : "GET",
+													type : "POST",
 													url : "account/password",
 													data : {
 														old_password : $(
