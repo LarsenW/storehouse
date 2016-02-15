@@ -17,7 +17,7 @@ import com.storehouse.common.dto.UserDto;
 public class AutoLoginServiceImpl implements AutoLoginService {
 
 	@Autowired
-	@Qualifier("authMgr")
+	@Qualifier("authenticationManager")
 	private AuthenticationManager authManager;
 
 	@Autowired
