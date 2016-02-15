@@ -25,7 +25,7 @@
 		<csrf />
 	</http>
 
-	<authentication-manager>
+	<authentication-manager id="authMgr">
 		<authentication-provider user-service-ref="userServiceImpl">
 			<password-encoder ref="passwordHelper"/>
 		</authentication-provider>

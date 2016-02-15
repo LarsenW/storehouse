@@ -11,13 +11,18 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
+import com.storehouse.business.services.AutoLoginService;
 import com.storehouse.business.services.UserCreatingService;
 import com.storehouse.common.dto.UserDto;
 
 @Controller
 public class RegistrationController {
+
 	@Autowired
-	UserCreatingService userCreatingService;
+	private UserCreatingService userCreatingService;
+
+	@Autowired
+	private AutoLoginService autoLoginService;
 
 	@RequestMapping(value = { "/registration" }, method = RequestMethod.GET)
 	public String showUserAddForm(Model model) {
@@ -41,7 +46,8 @@ public class RegistrationController {
 			}
 			return "registration";
 		} else if (userCreatingService.createUser(userDto)) {
-			return "login";
+			autoLoginService.autheticateUser(userDto);
+			return "redirect:/profile";
 		} else {
 			return "registration";
 		}
