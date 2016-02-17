@@ -1,8 +1,8 @@
 package com.storehouse.business.services;
 
-import com.storehouse.common.dto.UserDto;
+import com.storehouse.common.entity.User;
 
 public interface AutoLoginService {
 
-	public void autheticateUser(UserDto userDto);
+	public void autheticateUser(User user);
 }

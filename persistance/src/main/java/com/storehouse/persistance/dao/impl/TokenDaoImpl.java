@@ -18,7 +18,6 @@ public class TokenDaoImpl extends GenericDaoImpl<Token> implements TokenDao {
 		try {
 			token = (Token) query.getSingleResult();
 		} catch (Exception e) {
-			System.out.println("no result");
 			return token;
 		}
 		return token;
