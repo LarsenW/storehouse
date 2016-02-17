@@ -11,12 +11,13 @@ import com.storehouse.business.services.TokenCreatingService;
 public class MailSendingTool {
 	@Autowired
 	private MailSender mailSender;
-	
+
 	public void sendRegistrationEmail(String email, String link) {
 		SimpleMailMessage msg = new SimpleMailMessage();
 		msg.setTo(email);
 		msg.setSubject("Welcome to Storehouse");
-		msg.setText("To finish registration process, please, follow the link: \n \n" + link);
+		msg.setText("To finish registration process, please, follow the link: \n \n"
+				+ "http://localhost:8080/web/email_confirmation?val=" + link);
 		mailSender.send(msg);
 	}
 }

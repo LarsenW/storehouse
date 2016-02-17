@@ -73,6 +73,14 @@ public class User extends Model implements UserDetails {
 		this.active = active;
 	}
 
+	public Set<Token> getTokens() {
+		return tokens;
+	}
+
+	public void setTokens(Set<Token> tokens) {
+		this.tokens = tokens;
+	}
+
 	public Set<Item> getItems() {
 		return items;
 	}

@@ -15,4 +15,6 @@ public interface TokenService {
 	public List<Token> findAll();
 
 	public Token getById(Long id);
+	
+	public Token getByLink(String link);
 }

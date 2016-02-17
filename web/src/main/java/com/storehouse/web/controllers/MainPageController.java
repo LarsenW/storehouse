@@ -22,7 +22,6 @@ public class MainPageController {
 
 	@RequestMapping(value = { "/main", "/" }, method = RequestMethod.GET)
 	public String showMainPage(ModelMap model, HttpServletRequest request) {
-	//	mst.sendRegistrationEmail("wolflarsen10@gmail.com", ts.createToken("wolflarsen10@gmail.com"));
 		return "main";
 	}
 }

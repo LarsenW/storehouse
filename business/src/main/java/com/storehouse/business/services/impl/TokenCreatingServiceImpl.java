@@ -14,15 +14,14 @@ import com.storehouse.common.entity.Token;
 public class TokenCreatingServiceImpl implements TokenCreatingService {
 	@Autowired
 	private TokenService tokenService;
-
+	
 	@Override
-	public Token createToken() {
-		Token token = new Token();
+	public void createToken(Token token) {
 		Date currentDate = new Date();
 		token.setExpirationDate(new Date(currentDate.getTime() + 5 * 60_000));
-		String link = "http://localhost:8080/web/" + UUID.randomUUID().toString();
+		String link =UUID.randomUUID().toString();
 		token.setLink(link);
-		return token;
+		tokenService.persistToken(token);
 	}
 
 }

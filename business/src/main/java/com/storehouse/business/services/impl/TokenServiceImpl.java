@@ -43,4 +43,9 @@ public class TokenServiceImpl implements TokenService {
 		return tokenDao.getById(id);
 	}
 
+	@Override
+	public Token getByLink(String link) {
+		return tokenDao.getTokenByLink(link);
+	}
+
 }

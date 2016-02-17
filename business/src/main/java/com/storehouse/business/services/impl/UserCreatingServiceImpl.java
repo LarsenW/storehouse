@@ -45,11 +45,11 @@ public class UserCreatingServiceImpl implements UserCreatingService {
 			UserMapper userMapper = new UserMapper();
 			User user = userMapper.dtoToEntity(userDto);
 			user.setPassword(passwordHelper.encode(user.getPassword()));
-			Token token = tokenCreatingService.createToken();
-
-			mailSendingTool.sendRegistrationEmail(user.getEmail(), token.getLink());
-
+			Token token = new Token();
+			token.setUser(user);
 			userService.persistUser(user);
+			tokenCreatingService.createToken(token);
+			mailSendingTool.sendRegistrationEmail(user.getEmail(), token.getLink());
 			return true;
 
 		} catch (IOException e) {
