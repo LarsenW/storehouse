@@ -12,7 +12,7 @@ import com.storehouse.persistance.dao.UserDao;
 public class UserDaoImpl extends GenericDaoImpl<User> implements UserDao {
 
 	public User getUserByEmail(String email) {
-		Query query = entityManager.createQuery("Select u FROM User u WHERE u.email = :email");
+		Query query = entityManager.createQuery("Select u FROM User u WHERE u.email = :email AND u.active = true");
 		query.setParameter("email", email);
 		User user;
 		try {
@@ -24,7 +24,7 @@ public class UserDaoImpl extends GenericDaoImpl<User> implements UserDao {
 	}
 
 	public User getUserByName(String name) {
-		Query query = entityManager.createQuery("Select u FROM User u WHERE u.name = :name");
+		Query query = entityManager.createQuery("Select u FROM User u WHERE u.name = :name AND u.active = true");
 		query.setParameter("name", name);
 		User user;
 		try {
