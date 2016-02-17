@@ -1,7 +1,8 @@
 package com.storehouse.web.controllers;
 
-import javax.servlet.http.HttpServletRequest;
+import java.util.Date;
 
+import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -29,11 +30,14 @@ public class TokenRecognizerController {
 	@RequestMapping(value = { "/email_confirmation" }, method = RequestMethod.GET)
 	public String registerNewUser(HttpServletRequest req) {
 		Token token = tokenService.getByLink(req.getParameter("val"));
-		if (token != null) {
+		Date currentDate= new Date();
+		if (token != null && currentDate.before(token.getExpirationDate())) {
 			User user = userService.getById(token.getUser().getId());
 			autoLoginService.autheticateUser(user);
+			user.setActive(true);
+			userService.updateUser(user);
 			return "redirect:/profile";
 		}
-		return "redirect:/main";
+		return "redirect:/login";
 	}
 }
