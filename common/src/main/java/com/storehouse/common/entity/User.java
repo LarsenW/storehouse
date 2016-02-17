@@ -29,12 +29,17 @@ public class User extends Model implements UserDetails {
 
 	private String password;
 
-	@ManyToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
-	@JoinTable(name = "user_role", joinColumns = @JoinColumn(name = "user_id") , inverseJoinColumns = @JoinColumn(name = "role_id") )
-	private Set<Role> userRoles = new HashSet<Role>();
+	private boolean active = false;
 
 	@OneToMany(mappedBy = "user", cascade = { CascadeType.ALL })
-	private Set<Item> items = new HashSet<Item>();
+	private Set<Token> tokens = new HashSet<>();
+
+	@ManyToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+	@JoinTable(name = "user_role", joinColumns = @JoinColumn(name = "user_id") , inverseJoinColumns = @JoinColumn(name = "role_id") )
+	private Set<Role> userRoles = new HashSet<>();
+
+	@OneToMany(mappedBy = "user", cascade = { CascadeType.ALL })
+	private Set<Item> items = new HashSet<>();
 
 	public String getName() {
 		return name;
@@ -58,6 +63,14 @@ public class User extends Model implements UserDetails {
 
 	public void setPassword(String password) {
 		this.password = password;
+	}
+
+	public boolean isActive() {
+		return active;
+	}
+
+	public void setActive(boolean active) {
+		this.active = active;
 	}
 
 	public Set<Item> getItems() {

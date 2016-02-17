@@ -21,9 +21,6 @@ public class RegistrationController {
 	@Autowired
 	private UserCreatingService userCreatingService;
 
-	@Autowired
-	private AutoLoginService autoLoginService;
-
 	@RequestMapping(value = { "/registration" }, method = RequestMethod.GET)
 	public String showUserAddForm(Model model) {
 		model.addAttribute("userForm", new UserDto());
@@ -46,8 +43,7 @@ public class RegistrationController {
 			}
 			return "registration";
 		} else if (userCreatingService.createUser(userDto)) {
-			autoLoginService.autheticateUser(userDto);
-			return "redirect:/profile";
+			return "redirect:/login";
 		} else {
 			return "registration";
 		}

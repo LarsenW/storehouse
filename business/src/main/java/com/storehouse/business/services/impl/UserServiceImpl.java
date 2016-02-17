@@ -22,13 +22,11 @@ import com.storehouse.persistance.dao.UserDao;
 public class UserServiceImpl implements UserService {
 	@Autowired
 	private UserDao userDao;
-	@Autowired
-	private PasswordHelper passwordHelper;
+
 	@Autowired
 	private RoleService roleService;
 
 	public void persistUser(User user) {
-		user.setPassword(passwordHelper.encode(user.getPassword()));
 		Role role = roleService.getRoleByUserType(UserType.ROLE_USER);
 		user.getUserRoles().add(role);
 		userDao.persist(user);
